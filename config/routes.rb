@@ -1,4 +1,6 @@
 AskThem::Application.routes.draw do
+  resources :questions
+
   #get \"users\/show\"
 
   root :to => "home#index"
