@@ -1,4 +1,6 @@
 AskThem::Application.routes.draw do
+  resources :answers
+
   resources :questions
 
   #get \"users\/show\"
