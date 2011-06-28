@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.1.0.rc4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,7 +15,7 @@ gem 'haml'
 
 gem 'devise'
 
-
+gem 'rake', '~>0.9.0'
 # Deploy with Capistrano
 gem 'capistrano'
 

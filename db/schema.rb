@@ -10,13 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627223225) do
+ActiveRecord::Schema.define(:version => 20110628014846) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "response"
+    t.integer  "interviewee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
     t.text     "expected_response"
-    t.text     "response"
     t.boolean  "response_match"
     t.datetime "created_at"
     t.datetime "updated_at"
