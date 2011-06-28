@@ -1,4 +1,6 @@
 AskThem::Application.routes.draw do
+  resources :interviews
+
   resources :answers
 
   resources :questions
