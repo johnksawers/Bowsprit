@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @question.title %>
+</p>
+
+<p>
+  <b>Subtitle:</b>
+  <%= @question.subtitle %>
+</p>
+
+<p>
+  <b>Expected response:</b>
+  <%= @question.expected_response %>
+</p>
+
+<p>
+  <b>Response:</b>
+  <%= @question.response %>
+</p>
+
+<p>
+  <b>Response match:</b>
+  <%= @question.response_match %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

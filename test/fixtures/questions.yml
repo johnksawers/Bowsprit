@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  subtitle: MyString
+  expected_response: MyText
+  response: MyText
+  response_match: false
+
+two:
+  title: MyString
+  subtitle: MyString
+  expected_response: MyText
+  response: MyText
+  response_match: false
