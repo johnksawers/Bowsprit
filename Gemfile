@@ -15,3 +15,4 @@ gem "database_cleaner", ">= 0.6.7", :group => :test
 gem "launchy", ">= 0.4.0", :group => :test
 gem "devise", ">= 1.3.4"
 gem "rails-footnotes", ">= 3.7", :group => :development
+gem "powder", :group => :development

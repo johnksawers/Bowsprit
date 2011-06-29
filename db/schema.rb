@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628232807) do
+ActiveRecord::Schema.define(:version => 20110629000858) do
 
   create_table "answers", :force => true do |t|
     t.text     "response"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110628232807) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "response_matches"
   end
 
   create_table "interviews", :force => true do |t|
@@ -38,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20110628232807) do
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.boolean  "response_matches"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

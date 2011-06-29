@@ -4,7 +4,6 @@
   %tr
     %th Title
     %th Subtitle
-    %th Response matches
     %th
     %th
     %th
@@ -13,7 +12,6 @@
     %tr
       %td= question.title
       %td= question.subtitle
-      %td= question.response_matches
       %td= link_to 'Show', question
       %td= link_to 'Edit', edit_question_path(question)
       %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete

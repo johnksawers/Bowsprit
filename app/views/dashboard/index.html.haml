@@ -1,0 +1,9 @@
+%h3 All Your Interviews
+
+- if @user.interviews.empty?
+  %div.no_interviews
+    No Interviews set up, #{link_to "create one now", new_interview_path}
+-else
+  %ul
+    - @user.interviews.each do |user|
+      %li.interview  #{link_to user.name, user}
