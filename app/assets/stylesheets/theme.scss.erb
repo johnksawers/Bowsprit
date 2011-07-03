@@ -1,0 +1,648 @@
+/*
+Theme Name: Blue and Grey
+Author URI: http://elogi.se/
+Theme URI:
+Description: Modern theme with decent design. Main colors used in the theme are blue and grey. Widgetized menu.
+Author: elogi
+Version: 1.1
+Tags: blue, white, light, two-columns, fixed-width, editor-style
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+* {
+margin: 0;
+  padding: 0;
+  color: #666;
+  font-family: Arial,sans-serif;
+  font-size: 100%;
+}
+body {
+min-width: 960px;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+
+a, a:visited {
+color: #2b8fc3;
+  text-decoration: none;
+}
+a:hover {
+color: #555;
+  text-decoration: none;
+}
+
+@font-face {
+font-family: 'PTSans';
+  src: image-url('/fonts/pts55f-webfont.eot');
+  src: image-url('/fonts/pts55f-webfont.eot?#iefix') format('eot'), image-url('/fonts/pts55f-webfont.woff') format('woff'), image-url('/fonts/pts55f-webfont.ttf') format('truetype'), image-url('/fonts/pts55f-webfont.svg#webfontkIZ1cq8e') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+font-family: 'PTSansBold';
+  src: image-url('/fonts/pts75f-webfont.eot');
+  src: image-url('/fonts/pts75f-webfont.eot?#iefix') format('eot'), image-url('/fonts/pts75f-webfont.woff') format('woff'), image-url('/fonts/pts75f-webfont.ttf') format('truetype'), image-url('/fonts/pts75f-webfont.svg#webfontXwmEKppg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* basic text elements */
+h1 {
+margin-bottom: 0;
+  color: #000;
+  font-weight: normal;
+  font-size: 2em;
+  font-family: PTSansBold,sans-serif;
+  line-height: 1.5em;
+}
+h2 {
+margin: 0;
+  color: #666;
+  font-weight: normal;
+  font-size: 1.833em;
+  font-family: PTSansBold,sans-serif;
+  line-height: 1.3em;
+}
+h3 {
+margin: 1em 0;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-family: PTSansBold,sans-serif;
+  line-height: 1.3em;
+}
+h4 {
+margin: 1em 0;
+  color: #666;
+  font-size: 1.25em;
+  line-height: 1.3em;
+}
+p {
+margin: 1em 0;
+}
+ul, ol {
+margin: 1em 0;
+}
+ul li {
+margin: 5px 0;
+}
+ol li {
+margin: 5px 0;
+  display: list-item;
+}
+
+/* basic form elements */
+fieldset {
+border: none;
+}
+legend {
+border: none;
+  font-weight: bold;
+}
+label {
+display: block;
+  float: left;
+  clear: left;
+  width: 150px;
+  margin: 5px 0;
+}
+input, textarea, select {
+margin: 5px 0;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: #fff image-url("theme/input.png") top repeat-x;
+  color: #999;
+  vertical-align: middle;
+}
+	input.chk, input.radio {
+width: auto;
+  border: none;
+}
+textarea {
+width: 550px;
+  height: 150px;
+}
+button {
+height: 25px;
+  margin: 0;
+  padding: 0 10px;
+  border: none;
+  background: #b1e54c image-url("theme/button.png") bottom repeat-x;
+  color: #fff;
+  font: bold 1.083em/25px PTSans,Arial,sans-serif;
+  cursor: pointer;
+  vertical-align: middle;
+}
+legend {
+display: none;
+}
+
+
+/* layout
+------------------------------------------- */
+body {
+padding-bottom: 20px;
+  background: #c1c1c1 image-url("theme/bg.png") top repeat-x;
+}
+header {
+position: relative;
+  z-index: 50;
+  width: 962px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background: image-url("theme/header.png") center top no-repeat;
+}
+
+header nav{
+  float: right;
+}
+
+header h1{
+  margin: 0px 0 0 20px;
+}
+
+header .subtitle{
+  position:absolute;
+  top:54px;
+  left: 131px;
+}
+
+header h1{
+  font-size: 4em;
+}
+
+header p.logo {
+position: absolute;
+  left: 15px;
+  top: 25px;
+  margin: 0;
+  color: #333;
+  font: normal 1.667em/70px PTSans,sans-serif;
+  letter-spacing: 0.1em;
+}
+header p.logo a {
+float: left;
+  height: 70px;
+  margin: 0 25px 0 0;
+  padding: 0 25px 0 0;
+  border-right: 1px solid #d5d5d5;
+  color: #333;
+  font: normal 1.75em PTSansBold,sans-serif;
+  text-decoration: none;
+  letter-spacing: 0;
+  line-height: 70px;
+  outline: none;
+}
+header p.logo a img {
+vertical-align: middle;
+}
+header form {
+position: absolute;
+  left: 728px;
+  top: 39px;
+  width: 220px;
+  padding: 8px;
+}
+header form input {
+width: 105px;
+  margin: 0 4px 0 0;
+}
+header form button {
+margin: 0;
+}
+
+.container {
+overflow: hidden;
+  width: 958px;
+  margin: 0 auto;
+  background: #fff image-url("theme/content.png") center 1px no-repeat;
+}
+.sidebar {
+float: right;
+  width: 273px;
+  padding: 0 20px 0 0;
+}
+.sidebar ul {
+margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar ul li {
+margin: 0 0 20px 0;
+  padding: 0;
+}
+.sidebar ul li h2 {
+margin: 0;
+  padding: 2px 0 7px 15px;
+  background: image-url("theme/side-heading.png") left bottom no-repeat;
+  color: #999;
+  font: normal 1.5em/24px PTSansBold,sans-serif;
+}
+.sidebar ul li ul {
+margin: 1em 0;
+}
+.sidebar ul li ul li {
+margin: 0;
+  padding: 0;
+}
+.sidebar ul li ul li a {
+display: block;
+  padding: 5px 0 5px 20px;
+  border-bottom: 1px solid #ddd;
+  background: image-url("theme/sm-arrow.gif") 4px 10px no-repeat;
+}
+.sidebar ul li ul li a:hover {
+background-color: #eee;
+  color: #666;
+}
+.sidebar ul li ul li ul {
+margin: 0;
+}
+.sidebar ul li ul li ul a {
+padding-left: 30px;
+  background-image: image-url("theme/sm-arrow2.gif");
+  background-position: 15px 10px;
+}
+.sidebar ul li ul li ul ul a {
+padding-left: 40px;
+  background-image: image-url("theme/sm-arrow3.gif");
+  background-position: 25px 10px;
+}
+.main {
+float: left;
+  width: 603px;
+  padding: 0 40px 0 20px;
+  background: image-url("theme/column-separator.png") right top no-repeat;
+}
+.main h2 a {
+color: #666;
+  font-weight: normal;
+  font-family: PTSansBold,sans-serif;
+}
+.main h2 a:hover {
+color: #2b8fc3;
+}
+
+footer {
+overflow: hidden;
+  width: 958px;
+  height: 38px;
+  margin: 0 auto;
+  background: image-url("theme/footer.png") top center no-repeat;
+}
+footer ul.social {
+float: right;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 15px 0 0;
+  padding-top: 2px;
+}
+footer ul.social li {
+float: left;
+  margin: 0 2px;
+  padding: 0;
+}
+footer ul.social li a {
+display: block;
+  overflow: hidden;
+  width: 36px;
+  height: 35px;
+  background: image-url("theme/social.png") no-repeat;
+  text-indent: -5000px;
+}
+footer ul.social li a.facebook {
+background-position: 0 bottom;
+}
+footer ul.social li a.twitter {
+background-position: -36px bottom;
+}
+footer p {
+margin: 2px 0 0 10px;
+  color: #9f9f9f;
+  line-height: 35px;
+}
+footer p span {
+padding: 0 5px;
+  color: #646464;
+}
+footer p a {
+padding: 0 5px;
+  color: #3191c3;
+  text-decoration: none;
+}
+footer p a:hover {
+color: #333;
+  text-decoration: underline;
+}
+
+/* reusable classes
+------------------------------------------- */
+.secret {
+display: none;
+}
+
+p.meta {
+overflow: hidden;
+  margin: 0.5em 0 1em;
+  border: 1px solid #e6e6e6;
+  background: #f7f7f7 image-url("theme/meta-bg.png") top repeat-x;
+  font-size: 0.917em;
+  line-height: 18px;
+}
+p.tags {
+overflow: hidden;
+  float: left;
+  width: 480px;
+  overflow: hidden;
+  margin: 0 0 1em 0;
+  border: 1px solid #efefef;
+  background: #fafafa;
+  font-size: 0.917em;
+  line-height: 18px;
+}
+p.tags.full {
+float: none;
+  width: auto;
+}
+p.more {
+float: right;
+  margin: 0 0 1em 0;
+}
+p.more a {
+float: right;
+  padding-left: 20px;
+  background: image-url("theme/icons/more.png") 0 center no-repeat;
+  font-weight: bold;
+  line-height: 18px;
+}
+p.meta span, p.tags span {
+float: left;
+  padding: 0 15px 0 35px;
+  background: image-url("theme/post-meta.png") no-repeat;
+  line-height: 18px;
+}
+p.meta span.date {
+background-position: 0 0;
+  color: #333;
+}
+p.meta span.author {
+background-position: 0 -18px;
+}
+p.meta span.cats {
+background-position: 0 -36px;
+}
+p.tags span {
+background-position: 0 -54px;
+}
+p.tags span.comments {
+background-position: 0 -72px;
+}
+
+.main ol, .main ul {
+margin: 1.5em 3em;
+}
+.main ul {
+margin: 1.5em 2.5em;
+  list-style: none;
+}
+.main ul li {
+padding-left: 20px;
+  background: image-url("theme/sm-arrow.gif") 0 5px no-repeat;
+}
+
+.main form {
+padding: 15px;
+  border: 1px solid #ddd;
+  background: #f0f0f0 image-url("theme/form-shadow.png") 0 0 no-repeat;
+}
+p.submit {
+margin-bottom: 0;
+  text-align: center;
+}
+
+p.pagination {
+padding: 10px 0;
+  background: image-url("theme/horizontal-separator.png") center top no-repeat;
+  color: #aaa;
+  text-align: center;
+}
+p.pagination a {
+padding: 2px 5px;
+  font-weight: bold;
+}
+p.pagination a:hover {
+background: #83AD30;
+  color: #fff;
+}
+p.pagination a.current {
+background: #777;
+  color: #fff;
+}
+
+#design {
+width: 958px;
+  margin: 0 auto;
+  padding: 10px 0 5px 0;
+  text-align: right;
+  font-size: 10px;
+}
+
+
+/* Image testing */
+.alignright {
+
+float:right;
+ 
+margin:0 0 10px 10px;
+ 
+}
+.alignleft {
+
+float:left;
+ 
+margin:0 10px 10px 0;
+ 
+}
+.aligncenter {
+
+clear: both;
+ 
+display: block;
+ 
+margin:0 auto 10px;
+ 
+}
+.alignnone {
+
+margin-bottom:10px;
+ 
+margin-right: 5px;
+ 
+}
+.size-thumbnail {
+
+margin-right:8px;
+ 
+display:inline;
+ 
+}
+
+.sidebar ul ul {
+
+margin:0 0 0 0.35em;
+ 
+}
+
+.sidebar ul ul ul {
+
+margin:0 0 0 0.7em;
+ 
+}
+
+
+/*tags*/
+q, blockquote {
+
+	font-style:italic;
+ 
+}
+dt {
+
+	font-weight:bold;
+ 
+}
+
+dt, dd {
+
+	margin:0;
+ 
+	padding:0;
+ 
+}
+dd {
+
+	margin-bottom:1.5em;
+ 
+}
+
+dl, pre {
+
+	font-size:1em;
+ 
+	margin:1.5em 0;
+ 
+	padding:0;
+ 
+	line-height:1.5em;
+ 
+}
+
+
+big {
+
+	position:relative;
+ 
+	top:.1em;
+ 
+	font-size:2em;
+ 
+}
+
+ins {
+
+	text-decoration:none;
+ 
+	background-color:#fffabf;
+ 
+	background-color:#bfffc5;
+ 
+}
+
+sub, sup {
+line-height:1.2em;
+}
+
+/*table*/
+.container table {
+
+	border: 1px solid #e7e7e7;
+ 
+	text-align: left;
+ 
+	margin: 0 -1px 24px 0;
+ 
+	width: 100%;
+ 
+}
+.container tr th,
+.container thead th {
+
+	color: #888;
+ 
+	font-size: 12px;
+ 
+	font-weight: bold;
+ 
+	line-height: 18px;
+ 
+	padding: 9px 24px;
+ 
+}
+.container tr td {
+
+	border-top: 1px solid #e7e7e7;
+ 
+	padding: 6px 24px;
+ 
+}
+.container tr.odd td {
+
+	background: #F2F7FC;
+ 
+}
+
+h1, h2, h3, h4, h5, h6 {
+clear: both;
+}
+
+.gallery-item img {
+margin: 0 auto;
+}
+
+
+pre {
+
+	font-family: "Courier 10 Pitch", Courier, monospace;
+ 
+}
+code {
+
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+ 
+}
+
+.container pre,
+.container kbd,
+.container tt,
+.container var {
+
+	font-size: 15px;
+ 
+	line-height: 21px;
+ 
+}
+.container code {
+
+	font-size: 13px;
+ 
+}
+
+abbr,
+acronym {
+
+	border-bottom: 1px dotted #666;
+ 
+	cursor: help;
+ 
+}
