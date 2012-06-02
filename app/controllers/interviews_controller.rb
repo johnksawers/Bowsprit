@@ -24,7 +24,8 @@ class InterviewsController < ApplicationController
   # GET /interviews/new
   # GET /interviews/new.json
   def new
-    @interview = Interview.new
+    @interview = current_user.interviews.build
+
 
     respond_to do |format|
       format.html # new.html.erb

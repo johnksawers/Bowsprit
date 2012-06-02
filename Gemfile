@@ -23,5 +23,4 @@ gem "rolify", ">= 3.1.0"
 gem "bootstrap-sass", ">= 2.0.3"
 gem "will_paginate", ">= 3.0.3"
 
-gem 'formtastic'
 gem 'powder', :group => :development
