@@ -1,4 +1,10 @@
 class Interview < ActiveRecord::Base
-  has_and_belongs_to_many :questions
+  has_many :questions, :dependent => :destroy
+  accepts_nested_attributes_for :questions, :reject_if => :reject_question
+
+  def reject_question(attributed)
+    attributed['name'].blank?
+  end
+
 
 end
