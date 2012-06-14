@@ -15,6 +15,5 @@
   - else
     %h2 Questions
     %ul
-    = @interview.questions.each do |q|
-      %li=q.title
-
+      - @interview.questions.each do |q|
+        %li=q.title
