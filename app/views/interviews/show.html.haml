@@ -16,4 +16,13 @@
     %h2 Questions
     %ul
       - @interview.questions.each do |q|
-        %li=q.title
+        %li
+          =q.title
+          %a.btn.btn-mini{:id => "#{q.title.underscore}_edit",:href => '#'} Edit
+          %a.btn.btn-mini{:id => "#{q.title.underscore}_destroy",:href => '#'}
+            %i.icon-remove
+          %span.edit_fields{:id => "#{q.title.underscore}_edit_fields"}
+            =f.fields_for(:questions,q) do |builder|
+              =render('question_fields', :f => builder)
+  .actions
+    = f.submit 'Save'
