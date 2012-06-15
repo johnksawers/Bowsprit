@@ -4,9 +4,8 @@ function remove_questions(link) {
 }
 
 function add_questions(link, content) {
-  //var new_id = new Date().getTime();
-  //var regexp = new RegExp("new_question", "g")
-  //$(link).parent().before(content.replace(regexp, new_id));
-$(link).parent().before(content);
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_question", "g")
+  $(link).parent().before(content.replace(regexp, new_id));
 }
 

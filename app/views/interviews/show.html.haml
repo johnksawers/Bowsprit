@@ -10,7 +10,7 @@
     = link_to_add_questions 'Add Question', f
 
 
-  - if(@interview.questions.empty?)
+  - if @interview.questions.empty?
     %p No questions for this Interview, add some
   - else
     %h2 Questions

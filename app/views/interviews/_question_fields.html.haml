@@ -3,6 +3,7 @@
   = f.text_field :title
   = f.label :subtitle, 'Sub-Question'
   = f.text_field :subtitle
+  =f.hidden_field :order, :value => '1'
   = f.hidden_field :_destroy
   .btn_primary
     = f.submit 'Save'

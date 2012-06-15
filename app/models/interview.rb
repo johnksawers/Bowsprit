@@ -3,8 +3,8 @@ class Interview < ActiveRecord::Base
   accepts_nested_attributes_for :questions, :reject_if => :reject_question
 
   def reject_question(attributed)
-    attributed['name'].blank?
+    attributed['title'].blank?
   end
 
-
+  attr_accessible :name, :questions_attributes
 end
