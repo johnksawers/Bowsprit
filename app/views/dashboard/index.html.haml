@@ -1,5 +1,6 @@
-%h3 All Your Interviews
-
+%h2
+  All Your Interviews
+  .btn.btn-primary= link_to 'Create New Interview', new_interview_path, :class=> 'btn-primary'
 - if @user.interviews.empty?
   %div.no_interviews
     No Interviews set up, #{link_to "create one now", new_interview_path}

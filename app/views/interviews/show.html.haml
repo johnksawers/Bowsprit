@@ -1,8 +1,12 @@
-%p#notice= notice
-
 %h2
   ="Name: #{@interview.name}"
   .btn= link_to 'Edit', edit_interview_path(@interview)
+-if @interview.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@interview.errors.count, "error")} prohibited this interview from being saved:"
+    %ul
+      - @interview.errors.full_messages.each do |msg|
+        %li= msg
 
 = form_for @interview do |f|
 

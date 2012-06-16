@@ -6,9 +6,9 @@
         %li= msg
 
 = form_for @interview do |f|
-  =f.hidden_field :user_id
   .field
     = f.label :name
     = f.text_field :name
   .actions
     = f.submit 'Save'
+    =link_to "Destroy", @interview, :confirm => 'Are you sure?', :method => :delete

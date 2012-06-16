@@ -26,7 +26,6 @@ class InterviewsController < ApplicationController
   def new
     @interview = current_user.interviews.build
 
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @interview }
@@ -41,7 +40,7 @@ class InterviewsController < ApplicationController
   # POST /interviews
   # POST /interviews.json
   def create
-    @interview = Interview.new(params[:interview])
+    @interview = current_user.interviews.build(params[:interview])
 
     respond_to do |format|
       if @interview.save
@@ -77,7 +76,7 @@ class InterviewsController < ApplicationController
     @interview.destroy
 
     respond_to do |format|
-      format.html { redirect_to interviews_url }
+      format.html { redirect_to root_url,notice: "Interview #{@interview.name} deleted" }
       format.json { head :ok }
     end
   end
