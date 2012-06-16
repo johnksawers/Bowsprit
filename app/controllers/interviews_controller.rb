@@ -64,7 +64,7 @@ class InterviewsController < ApplicationController
         format.html { redirect_to @interview, notice: 'Interview was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit",notice: 'There was an error updating' }
         format.json { render json: @interview.errors, status: :unprocessable_entity }
       end
     end
