@@ -1,26 +1,29 @@
 %h2
-  ="Name: #{@interview.name}"
-  .btn= link_to 'Edit', edit_interview_path(@interview)
+	="Name: #{@interview.name}"
+	= link_to 'Edit', edit_interview_path(@interview), :class => 'btn'
 -if @interview.errors.any?
-  #error_explanation
-    %h2= "#{pluralize(@interview.errors.count, "error")} prohibited this interview from being saved:"
-    %ul
-      - @interview.errors.full_messages.each do |msg|
-        %li= msg
-
+	#error_explanation
+	%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this interview from being saved:"
+	%ul
+		- @interview.errors.full_messages.each do |msg|
+			%li= msg
+%h2
+	Questions
+	= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'add_question_button'
 = form_for @interview do |f|
-  = link_to_add_questions 'Add Question', f
-  - if @interview.questions.empty?
-    %p No questions for this Interview, add some
-  - else
-    %h2 Questions
-    %ul
-      - @interview.questions.each do |q|
-        %li
-          =q.title
-          %a.btn.btn-mini.edit_button{:id => "#{q.title.underscore}_edit",:href => '#'} Edit
-          %span.edit_fields.hidden{:id => "#{q.title.underscore}_edit_fields"}
-            =f.fields_for(:questions,q) do |builder|
-              =render('question_fields', :f => builder)
-  .actions
-    = f.submit 'Save'
+	.hidden
+		:javascript
+			var dynamic_question_form="#{build_dynamic_question_form f}";
+	#new_question_fields_container
+	- if @interview.questions.empty?
+		%p No questions for this Interview, add some
+	%ul
+		- @interview.questions.each do |q|
+			%li
+				=q.title
+				%a.btn.btn-mini.edit_button{:id => "#{q.title.underscore}_edit",:href => '#'} Edit
+				%span.edit_fields.hidden{:id => "#{q.title.underscore}_edit_fields"}
+					=f.fields_for(:questions,q) do |builder|
+						=render('question_fields', :f => builder)
+	.actions
+		= f.submit 'Save'
