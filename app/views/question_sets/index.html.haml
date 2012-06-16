@@ -1,4 +1,4 @@
-%h1 Listing interviews
+%h1 Listing question_sets
 
 %table
   %tr
@@ -8,7 +8,7 @@
     %th
     %th
 
-  - @interviews.each do |interview|
+  - @questionsets.each do |interview|
     %tr
       %td= interview.name
       %td= interview.user_id
@@ -18,4 +18,4 @@
 
 %br
 
-= link_to 'New Interview', new_interview_path
+= link_to 'New QuestionSet', new_interview_path

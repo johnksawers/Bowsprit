@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20110629000858) do
     t.boolean  "response_matches"
   end
 
-  create_table "interviews", :force => true do |t|
+  create_table "question_sets", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at"

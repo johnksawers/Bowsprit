@@ -6,7 +6,7 @@ AskThem::Application.routes.draw do
   devise_for :users
   resources :users, :only => [:show, :index]
 
-  resources :interviews
+  resources :question_sets
   resources :answers
   resources :questions
 

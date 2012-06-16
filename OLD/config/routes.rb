@@ -1,7 +1,7 @@
 AskThem::Application.routes.draw do
   root :to => "dashboard#index"
 
-  resources :interviews
+  resources :question_sets
   resources :answers
   resources :questions
 

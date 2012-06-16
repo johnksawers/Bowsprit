@@ -15,7 +15,7 @@
           .subtitle
             Your tools for managing customer interviews
         .sidebar
-          = link_to "Create New Interview", new_interview_path
+          = link_to "Create New QuestionSet", new_interview_path
         .main{:role => "main"}
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
