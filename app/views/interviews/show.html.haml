@@ -9,11 +9,7 @@
         %li= msg
 
 = form_for @interview do |f|
-
-  .btn-primary
-    = link_to_add_questions 'Add Question', f
-
-
+  = link_to_add_questions 'Add Question', f
   - if @interview.questions.empty?
     %p No questions for this Interview, add some
   - else
@@ -22,10 +18,10 @@
       - @interview.questions.each do |q|
         %li
           =q.title
-          %a.btn.btn-mini{:id => "#{q.title.underscore}_edit",:href => '#'} Edit
-          %a.btn.btn-mini{:id => "#{q.title.underscore}_destroy",:href => '#'}
+          %a.btn.btn-mini.edit_button{:id => "#{q.title.underscore}_edit",:href => '#'} Edit
+          %a.btn.btn-mini.destroy_button{:id => "#{q.title.underscore}_destroy",:href => '#'}
             %i.icon-remove
-          %span.edit_fields{:id => "#{q.title.underscore}_edit_fields"}
+          %span.edit_fields.hidden{:id => "#{q.title.underscore}_edit_fields"}
             =f.fields_for(:questions,q) do |builder|
               =render('question_fields', :f => builder)
   .actions

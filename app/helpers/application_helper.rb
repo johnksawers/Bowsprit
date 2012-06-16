@@ -8,7 +8,7 @@ module ApplicationHelper
     fields = f.fields_for(:questions, new_object, :child_index => "new_question") do |builder|
       render("question_fields", :f => builder)
     end
-    link_to_function(name, "add_questions(this, \"#{escape_javascript(fields)}\")")
+    link_to_function(name, "add_questions(this, \"#{escape_javascript(fields)}\")",:class => 'btn btn-primary')
   end
 end
 
