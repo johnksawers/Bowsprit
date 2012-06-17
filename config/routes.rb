@@ -1,4 +1,4 @@
-AskThem::Application.routes.draw do
+Repartee::Application.routes.draw do
     authenticated :user do
         root :to => 'dashboard#index'
     end
