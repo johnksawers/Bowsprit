@@ -1,14 +1,14 @@
--if @questionset.errors.any?
+-if @qs.errors.any?
   #error_explanation
-    %h2= "#{pluralize(@questionset.errors.count, "error")} prohibited this questionset from being saved:"
+    %h2= "#{pluralize(@qs.errors.count, "error")} prohibited this questionset from being saved:"
     %ul
-      - @questionset.errors.full_messages.each do |msg|
+      - @qs.errors.full_messages.each do |msg|
         %li= msg
 
-= form_for @questionset do |f|
+= form_for @qs do |f|
   .field
     = f.label :name
     = f.text_field :name
   .actions
     = f.submit 'Save'
-    =link_to "Destroy", @questionset, :confirm => 'Are you sure?', :method => :delete
+    =link_to "Destroy", @qs, :confirm => 'Are you sure?', :method => :delete

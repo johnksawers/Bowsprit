@@ -1,10 +1,13 @@
 %h2
-  All Your Interviews
-  .btn.btn-primary= link_to 'Create New QuestionSet', new_interview_path, :class=> 'btn-primary'
+	All Your QuestionSets
+	.btn.btn-primary= link_to 'Create New QuestionSet', new_question_set_path, :class=> 'btn-primary'
 - if @user.question_sets.empty?
-  %div.no_interviews
-    No Interviews set up, #{link_to "create one now", new_interview_path}
+	%div.no_question_sets
+	No Interviews set up, #{link_to "create one now", new_question_set_path}
 -else
-  %ul
-    - @user.question_sets.each do |user|
-      %li.interview  #{link_to user.name, user}
+	%ul
+		- @user.question_sets.each do |qs|
+			%li.question_set
+			= link_to qs.name, qs
+			= link_to 'Conduct Interview', new_question_set_interview_path(qs), :class=> 'btn btn-mini'
+

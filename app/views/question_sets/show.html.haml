@@ -1,24 +1,24 @@
 %h2
-	="Name: #{@questionset.name}"
-	= link_to 'Edit', edit_interview_path(@questionset), :class => 'btn'
--if @questionset.errors.any?
+	="Name: #{@qs.name}"
+	= link_to 'Edit', edit_question_set_path(@qs), :class => 'btn'
+-if @qs.errors.any?
 	#error_explanation
-	%h2= "#{pluralize(@questionset.errors.count, "error")} prohibited this questionset from being saved:"
+	%h2= "#{pluralize(@qs.errors.count, "error")} prohibited this question_set from being saved:"
 	%ul
-		- @questionset.errors.full_messages.each do |msg|
+		- @qs.errors.full_messages.each do |msg|
 			%li= msg
 %h2
 	Questions
 	= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'add_question_button'
-= form_for @questionset do |f|
+= form_for @qs do |f|
 	.hidden
 		:javascript
 			var dynamic_question_form="#{build_dynamic_question_form f}";
 	#new_question_fields_container
-	- if @questionset.questions.empty?
+	- if @qs.questions.empty?
 		%p No questions for this QuestionSet, add some
 	%ul
-		- @questionset.questions.each do |q|
+		- @qs.questions.each do |q|
 			%li
 				=q.title
 				%a.btn.btn-mini.edit_button{:id => "#{q.title.underscore}_edit",:href => '#'} Edit

@@ -1,0 +1,9 @@
+.field
+	= f.fields_for :answers,answer do |a|
+		= a.label :response
+		= a.text_area :response
+		-#= a.label :response_matches
+		-#= a.checkbox :response_matches
+		= a.hidden_field :question_id
+		-#= a.hidden_field :answer_id
+	-#= f.hidden_field :interview_id, :value => @interview.id

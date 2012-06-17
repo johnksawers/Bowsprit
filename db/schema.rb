@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120629000861) do
+ActiveRecord::Schema.define(:version => 20120629000862) do
 
   create_table "answers", :force => true do |t|
     t.text     "response"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20120629000861) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.boolean  "response_matches"
+    t.integer  "interview_id"
+  end
+
+  create_table "interviews", :force => true do |t|
+    t.string   "name"
+    t.integer  "question_set_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "question_sets", :force => true do |t|
@@ -32,10 +40,10 @@ ActiveRecord::Schema.define(:version => 20120629000861) do
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "interview_id", :null => false
-    t.integer  "order",        :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "question_set_id", :null => false
+    t.integer  "order",           :null => false
   end
 
   create_table "roles", :force => true do |t|

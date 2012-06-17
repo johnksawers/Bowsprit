@@ -1,4 +1,4 @@
-%h1 Listing question_sets
+%h1 Listing QuestionSets
 
 %table
   %tr
@@ -8,14 +8,14 @@
     %th
     %th
 
-  - @questionsets.each do |interview|
+  - @questionsets.each do |qs
     %tr
-      %td= interview.name
-      %td= interview.user_id
-      %td= link_to 'Show', interview
-      %td= link_to 'Edit', edit_interview_path(interview)
-      %td= link_to 'Destroy', interview, :confirm => 'Are you sure?', :method => :delete
+      %td= qs.name
+      %td= qs.user_id
+      %td= link_to 'Show', qs
+      %td= link_to 'Edit', edit_question_set_path(qs)
+      %td= link_to 'Destroy', qs, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New QuestionSet', new_interview_path
+= link_to 'New QuestionSet', new_question_set_path
