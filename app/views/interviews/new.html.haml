@@ -1,16 +1,15 @@
 %h1 Start Interview
-= form_for @qs, :method => :post, :url => question_set_interviews_path(@qs) do |f|
-	-if @qs.errors.any?
+= form_for @interview, :method => :post, :url => question_set_interviews_path(@qs) do |f|
+	-if @interview.errors.any?
 		#error_explanation
-			%h2= "#{pluralize(@qs.errors.count, "error")} prohibited this question from being saved:"
+			%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"
 			%ul
-			- @qs.errors.full_messages.each do |msg|
+			- @interview.errors.full_messages.each do |msg|
 				%li= msg
-
 	.fields
-		= f.fields_for :interviews,@qs.interviews.build do |i|
-			= i.label :name
-			= i.text_field :name
+		= f.label :name
+		= f.text_field :name
+		= f.hidden_field :question_set_id
 	.actions
 		= f.submit 'Save and Begin Interview'
 = link_to 'Back', root_path
