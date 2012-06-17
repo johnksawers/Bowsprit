@@ -64,3 +64,4 @@ tmp/*
 **.swp
 
 .idea/*
+.rvmrc
