@@ -1,0 +1,6 @@
+%h2
+	All Interviews for QuestionSet
+	.qs_name= @qs.name
+%ul
+	- @qs.interviews.each do |i|
+		%li= link_to i.name, question_set_interview_path(@qs,i)

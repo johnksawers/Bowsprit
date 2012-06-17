@@ -1,0 +1,10 @@
+%h2
+	Answers for Interview
+	.interview_name= @interview.name
+
+%ul
+-@interview.answers.each do |a|
+	%li.response
+		.question_title_row= a.question.title
+		.question_subtitle_row= a.question.subtitle
+		.answer_row= a.response
