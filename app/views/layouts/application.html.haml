@@ -7,14 +7,12 @@
     %title= content_for?(:title) ? yield(:title) : "Repartee"
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     = yield(:head)
   %body
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
+    = render 'layouts/navigation'
+    = render 'layouts/subnavigation'
     #main{:role => "main"}
       .container
         .content

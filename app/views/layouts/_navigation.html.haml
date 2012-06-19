@@ -1,19 +1,44 @@
-= link_to "Repartee", root_path, :class => 'brand'
-%ul.nav
-  - if user_signed_in?
-    %li
-      = link_to('Dashboard', root_path)
-    %li
-      = link_to('Logout', destroy_user_session_path, :method=>'delete')
-  - else
-    %li
-      = link_to('Login', new_user_session_path)
-  - if user_signed_in?
-    %li
-      = link_to('Edit account', edit_user_registration_path)
-    -#- if current_user.has_role? :admin
-    -#  %li
-    -#    = link_to('Admin', users_path)
-  - else
-    %li
-      = link_to('Sign up', new_user_registration_path)
+%header.navbar.navbar-fixed-top
+	%nav.navbar-inner
+		.container
+			.btn.btn-navbar{"data-toggle" => 'collapse', "data-target" => '.nav-collapse'}
+				.icon-bar
+				.icon-bar
+				.icon-bar
+			= link_to "Repartee", root_path, :class => 'brand'
+			.nav-collapse
+				%ul.nav.pull-right
+					%li.dropdown
+						%a{:href => "#", :class => "dropdown-toggle", "data-toggle" => "dropdown"}
+							%i.icon-cog
+							Settings
+							%b.caret
+						%ul.dropdown-menu
+							%li
+								%a{:href => "javascript:;"}
+									Account Settings
+							%li
+								%a{:href => "javascript:;"}
+									Privacy Settings
+							%li.divider
+							%li
+								%a{:href =>"javascript:;"}
+									Help
+					%li.dropdown
+						%a{:href =>"#", :class => "dropdown-toggle", "data-toggle" => "dropdown"}
+							%i.icon-user
+							Rod Howard
+							%b.caret
+						%ul.dropdown-menu
+							%li
+								%a{:href =>"javascript:;"}
+								My Profile
+							%li
+								%a{:href =>"javascript:;"}
+								My Groups
+							%l.divider
+							%li
+								%a{:href => "javascript:;"}
+									Logout
+				%form.navbar-search.pull-right
+					%input.search-query{:type => "text", :placeholder => "Search"}

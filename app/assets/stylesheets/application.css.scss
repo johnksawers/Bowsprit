@@ -10,6 +10,9 @@
  *
  *= require_self
  *= require_tree .
+ *= require base-admin-theme/_bootstrap_and_overrides
+ *= require base-admin-theme/base-admin
+ *= require base-admin-theme/base-admin-responsive
 */
 
 .content {
