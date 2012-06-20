@@ -1,17 +1,22 @@
-%h2
-	All Your QuestionSets
-	.btn.btn-primary= link_to 'Create New QuestionSet', new_question_set_path, :class => 'btn-primary'
-- if @user.question_sets.empty?
-	%div.no_question_sets
-	No Interviews set up, #{link_to "create one now", new_question_set_path}
--else
-	%ul
-		- @user.question_sets.each do |qs|
-			%li.question_set
-				= link_to qs.name, qs
-				= link_to 'Conduct Interview', new_question_set_interview_path(qs), :class => 'btn btn-mini'
-				-if( qs.interviews.any?)
-					.latest_interview
-						Latest Interview:
-						= link_to qs.interviews.last.name,[qs,qs.interviews.last]
-					= link_to 'All Interviews', question_set_interviews_path(qs), :class => 'btn btn-mini'
+.span9
+	-# from outer spaces
+	.widget.widget-table.action-table
+		.widget-header
+			.icon.icon.th.list
+			%h3 All Your QuestionSets
+			.btn.btn-primary= link_to 'Create New QuestionSet', new_question_set_path, :class => 'btn-primary'
+		.widget-content
+			- if @user.question_sets.empty?
+				.no_question_sets
+					No Interviews set up, #{link_to "create one now", new_question_set_path}
+			-else
+				%ul
+					- @user.question_sets.each do |qs|
+						%li.question_set
+							= link_to qs.name, qs
+							= link_to 'Conduct Interview', new_question_set_interview_path(qs), :class => 'btn btn-mini'
+							-if( qs.interviews.any?)
+								.latest_interview
+									Latest Interview:
+									= link_to qs.interviews.last.name,[qs,qs.interviews.last]
+								= link_to 'All Interviews', question_set_interviews_path(qs), :class => 'btn btn-mini'

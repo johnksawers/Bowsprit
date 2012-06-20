@@ -3,3 +3,8 @@ $iconSpritePath: asset-url('glyphicons-halflings.png', image);
 $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
 @import "bootstrap";
 @import "bootstrap-responsive";
+
+//remove the twitter icons, so that font-awesome will work correctly
+[class^="icon-"], [class*=" icon-"] {
+	background-image: none;
+}

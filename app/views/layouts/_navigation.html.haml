@@ -26,8 +26,8 @@
 									Help
 					%li.dropdown
 						%a{:href =>"#", :class => "dropdown-toggle", "data-toggle" => "dropdown"}
-							%i.icon-user
-							Rod Howard
+							.icon.icon-user
+							= current_user.name
 							%b.caret
 						%ul.dropdown-menu
 							%li
