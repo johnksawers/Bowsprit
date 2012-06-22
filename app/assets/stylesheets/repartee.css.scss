@@ -1,0 +1,33 @@
+// Variables
+$link-color: #FF9900;
+
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+a{
+	color: $link-color;
+}
+.page-title{
+	line-height: 45px;
+}
+
+.subnavbar{
+	margin-bottom: 5px;
+}
+
+.widget-header a{
+	float: right;
+	margin: 6px;
+}
+
+.widget li{
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #CCCCCC;
+	box-shadow: 0 10px 15px -17px #0000FF inset;
+	-webkit-box-shadow: 0 10px 15px -17px #0000FF insett;
+	padding: 10px;
+}
