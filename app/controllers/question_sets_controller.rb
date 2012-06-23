@@ -1,13 +1,7 @@
 class QuestionSetsController < ApplicationController
     # GET /question_sets
-    # GET /question_sets.json
     def index
-        @questionsets = QuestionSet.all
-
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @questionsets }
-        end
+        redirect_to root_path
     end
 
     # GET /question_sets/1

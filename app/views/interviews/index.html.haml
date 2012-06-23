@@ -1,6 +1,27 @@
-%h2
-	All Interviews for QuestionSet
-	.qs_name= @qs.name
-%ul
-	- @qs.interviews.each do |i|
-		%li= link_to i.name, question_set_interview_path(@qs,i)
+.span12
+	%h1.page-title
+		All Interviews for QuestionSet
+		%span.qs_name= @qs.name
+.span9
+	-# from outer space
+	- if @qs.interviews.empty?
+		.widget.widget-table.action-table
+			.widget-header
+				.icon.icon.th.list
+				%h3.no_question_sets
+					No Interviews, #{link_to 'Create one now', new_question_set_interview_path(@qs)}
+	-else
+		- @qs.interviews.each do |i|
+			.widget.widget-table.action-table.question-set-list
+				.widget-header
+					.icon.icon.th.list
+					%h3= link_to i.name, question_set_interview_path(@qs,i)
+				.widget-content
+					%ul
+						%li.interview_action
+							= edit_link edit_question_set_interview_path(@qs,i)
+							(#{i.answers.count}) Answers
+							= link_to 'All Answers', answers_path(i), :class => 'btn btn-mini right-btn'
+
+.span3
+	= link_to 'Create New QuestionSet', new_question_set_path, :class => 'btn btn-large btn-warning btn-support-ask'

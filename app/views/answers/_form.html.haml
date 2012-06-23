@@ -9,8 +9,6 @@
   .field
     = f.label :response
     = f.text_area :response
-  .field
-    = f.label :question_id
-    = f.number_field :question_id
+    = f.hidden_field :question_id
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => "btn btn-primary"
