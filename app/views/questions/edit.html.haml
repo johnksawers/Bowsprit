@@ -1,7 +1,12 @@
-%h1 Editing question
-
-= render 'form'
-
-= link_to 'Show', @question
-\|
-= link_to 'Back', questions_path
+.span12
+	%h1.page-title Edit Question
+#status
+.span12
+	= form_for [@question] do |f|
+		.field
+			= f.label :title
+			= f.text_field :title
+			= f.label :subtitle
+			= f.text_field :subtitle
+		.actions
+			= f.submit 'Save'

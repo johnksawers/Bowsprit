@@ -9,20 +9,24 @@
 			- @question.errors.full_messages.each do |msg|
 				%li= msg
 .span9
-	.widget.widget-table.action-table.question-set-widget
-		.widget-header
-			.icon.icon.th.list
-			%h3
-				Answers
-		.widget-content.answer-list
-			%ul
-				- if @question.answers.empty?
-					%li No answers for this question, add some
-				-else
-					- @question.answers.each do |a|
-						%li
-							=a.response.truncate 100
-							.hidden.expanded_answer
-								=a.response
+	- if @question.answers.empty?
+		.widget.interview-widget
+			.widget-header
+				.icon.icon.th.list
+			.widget-content.answer
+				No answers for this question, add some
+	-else
+		- @question.answers.each do |a|
+			.widget.interview-widget
+				.widget-header
+					.icon.icon.th.list
+					%h3
+						= a.interview.name
+				.widget-content.answer
+					%a{:href => '#', :class => 'btn btn-mini btn-right toggle_full_answer'} Expand
+					%p.short_answer
+						= a.response.truncate 130
+					%p.full_answer{:style => 'display:none'}
+						=a.response
 .span3
 	= link_to 'Edit This Question', edit_question_path(@question), :class => 'btn btn-large btn-warning btn-support-ask'

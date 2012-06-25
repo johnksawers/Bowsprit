@@ -20,8 +20,8 @@
 					%ul
 						%li.interview_action
 							= edit_link edit_question_set_interview_path(@qs,i)
-							(#{i.answers.count}) Answers
-							= link_to 'All Answers', answers_path(i), :class => 'btn btn-mini right-btn'
+							#{i.answers.count} Answers
+							= link_to 'Show Answers', question_set_interview_path(@qs,i), :class => 'btn btn-mini btn-right'
 
 .span3
 	= link_to 'Create New QuestionSet', new_question_set_path, :class => 'btn btn-large btn-warning btn-support-ask'

@@ -5,6 +5,7 @@ function show_edit(link) {
 	} else {
 		edit_fields.addClass("hidden");
 	}
+	return false;
 }
 function add_question_fields() {
 	if ($("#new_question_fields_container").is(":hidden")) {
@@ -17,13 +18,15 @@ function add_question_fields() {
 	} else {
 		$("#new_question_fields_container").hide();
 	}
+	return false;
 }
 
 function remove_question(link) {
 	$(link).prev("input[type=hidden]").val("1");
 	$(link).closest("li").hide();
+	return false;
 }
-console.log("FFFffffffffff");
+
 $(document).ready(function () {
 	$(".edit_button").click(function () {
 		show_edit(this);

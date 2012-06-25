@@ -1,27 +1,25 @@
 .span12
 	%h1.page-title Conduct Interview
 #status
-= form_for [@qs] do |f|
-	.field
-		= f.label :name
-		= f.text_field :name
-= form_for [@qs,@interview], :remote => :true, :html => { :id => 'interview_form'} do |f|
-	-if @interview.errors.any?
-		#error_explanation
-			%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"
-			%ul
-			- @interview.errors.full_messages.each do |msg|
-				%li= msg
+.span12
+	= form_for [@qs] do |f|
+		.field
+			= f.label :name
+			= f.text_field :name
+	= form_for [@qs,@interview], :remote => :true, :html => { :id => 'interview_form'} do |f|
+		-if @interview.errors.any?
+			#error_explanation
+				%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"
+				%ul
+				- @interview.errors.full_messages.each do |msg|
+					%li= msg
 
-	%h3="#{@qs.questions.count} Questions"
-	.questions
-		-@interview.answers.each do |a|
-			- q = a.question
-			.question=q.title
-			.subtitle=q.subtitle
-			=render('answer_form',:f =>f, :answer => a,:interview => @interview)
-	.actions
-		= f.submit 'Save'
-
-
-= link_to 'Back', root_path
+		%h3="#{@qs.questions.count} Questions"
+		.questions
+			-@interview.answers.each do |a|
+				- q = a.question
+				.question=q.title
+				.subtitle=q.subtitle
+				=render('answer_form',:f =>f, :answer => a,:interview => @interview)
+		.actions
+			= f.submit 'Save'

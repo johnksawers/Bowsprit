@@ -1,10 +1,31 @@
-%h2
-	Answers for Interview
-	.interview_name= @interview.name
-
-%ul
--@interview.answers.each do |a|
-	%li.response
-		.question_title_row= a.question.title
-		.question_subtitle_row= a.question.subtitle
-		.answer_row= a.response
+.span12
+	%h2.page-title
+		="Answers for: #{@interview.name}"
+.span12
+	-if @interview.errors.any?
+		#error_explanation
+		%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question_set from being saved:"
+		%ul
+			- @interview.errors.full_messages.each do |msg|
+				%li= msg
+.span9
+	- if @interview.answers.empty?
+		.widget.interview-widget
+			.widget-header
+				.icon.icon.th.list
+			.widget-content.answer
+				No answers for this question, add some
+	-else
+		- @interview.answers.each do |a|
+			.widget.interview-widget
+				.widget-header
+					.icon.icon.th.list
+					%h3
+						.question_title= a.question.title
+						.question_subtitle= a.question.subtitle
+				.widget-content.answer
+					%a{:href => '#', :class => 'btn btn-mini btn-right toggle_full_answer'} Expand
+					%p.short_answer
+						= a.response.truncate 130
+					%p.full_answer{:style => 'display:none'}
+						=a.response
