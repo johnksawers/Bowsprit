@@ -3,33 +3,40 @@
 		.container
 			%ul.mainnav
 				- if user_signed_in?
-					%li.active
+					%li{class: (request.url == root_path) && 'active'}
 						%a{:href => root_path}
 							.icon.icon-dashboard
 							%span Dashboard
-				%li
-					%a{:href => './faq.html'}
-						.icon.icon-pushpin
-						%span FAQ
-				%li
-					%a{:href => './pricing.html'}
-						.icon.icon-bar-chart
-						%span Pricing Plans
-				%li
-					%a{:href => edit_user_registration_path}
-						.icon.icon-wrench
-						%span Settings
-				- if user_signed_in?
+					%li{class: (request.fullpath == faq_path) && 'active'}
+						%a{:href => faq_path}
+							.icon.icon-pushpin
+							%span FAQ
+					%li{class: (request.fullpath == about_path) && 'active'}
+						%a{:href => about_path}
+							.icon.icon-beaker
+							%span About
+					%li{class: (request.fullpath == edit_user_registration_path) && 'active'}
+						%a{:href => edit_user_registration_path}
+							.icon.icon-wrench
+							%span Settings
 					%li
-						%a{:href => destroy_user_session_path}
+						%a{:href => sign_out_path}
 							.icon.icon-signin
-							%span Log Out
+							%span Sign Out
 				- else
-					%li
-						%a{:href => new_user_session_path}
+					%li{class: (request.fullpath == about_path) && 'active'}
+						%a{:href => about_path}
+							.icon.icon-beaker
+							%span About
+					%li{class: (request.fullpath == pricing_path) && 'active'}
+						%a{:href => pricing_path}
+							.icon.icon-bar-chart
+							%span Pricing Plans
+					%li{class: (request.fullpath == sign_in_path) && 'active'}
+						%a{:href => sign_in_path}
 							.icon.icon-signout
-							%span Log In
-					%li
-						%a{:href => new_user_registration_path}
+							%span Sign In
+					%li{class: (request.fullpath == sign_up_path) && 'active'}
+						%a{:href => sign_up_path}
 							.icon.icon-upload
 							%span Sign Up
