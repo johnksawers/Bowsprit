@@ -1,7 +1,9 @@
-%h1 Editing QuestionSet
-
-= render 'form'
-
-= link_to 'Show', @qa
-\|
-= link_to 'Back', question_sets_path
+.span12
+	%h1.page-title= @qs.name
+.span12
+	.widget
+		.widget-header
+			.icon.icon.th.list
+			%h3 Edit
+		.widget-content
+			= render 'form'

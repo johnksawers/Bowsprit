@@ -1,6 +1,6 @@
 -if @qs.errors.any?
 	#error_explanation
-		%h2= "#{pluralize(@qs.errors.count, "error")} prohibited this questionset from being saved:"
+		%h2= "#{pluralize(@qs.errors.count, "error")} prohibited this QuestionSet from being saved:"
 		%ul
 		- @qs.errors.full_messages.each do |msg|
 			%li= msg
@@ -10,6 +10,6 @@
 		= f.label :name
 		= f.text_field :name
 	.actions
-		= f.submit 'Save'
+		= f.submit 'Save', :class => 'btn btn-primary'
 		- if @qs.persisted?
 			=link_to "Destroy", @qs, :confirm => 'Are you sure?', :method => :delete

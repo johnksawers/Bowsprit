@@ -4,28 +4,33 @@
 .span9
 	-# from outer space
 	- if @user.question_sets.empty?
-		.widget.widget-table.action-table
+		.widget
 			.widget-header
 				.icon.icon.th.list
 				%h3.no_question_sets
-					No Interviews set up, #{link_to 'Create one now', new_question_set_path}
+					No Interviews set up
+			.widget-content
+				Click that big honker over there to get started
+				.point_at_button.icon-circle-arrow-right
 	-else
 		- @user.question_sets.each do |qs|
 			.widget.widget-table.action-table.question-set-list
 				.widget-header
 					.icon.icon.th.list
-					%h3= link_to qs.name, qs
+					%h3= qs.name
 				.widget-content
 					%ul
 						%li.interview_action
 							= edit_link question_set_path(qs)
-							(#{qs.questions.count}) Questions
-							= link_to 'All Interviews', question_set_interviews_path(qs), :class => 'btn btn-mini btn-right'
+							= pluralize qs.questions.count, 'Question'
 							= link_to 'Conduct Interview', new_question_set_interview_path(qs), :class => 'btn btn-mini btn-primary btn-right'
+							= link_to 'All Interviews', question_set_interviews_path(qs), :class => 'btn btn-mini btn-right' if qs.interviews.any?
 						-if  qs.interviews.any?
 							%li.latest_interview
 								Latest Interview:
 								= link_to qs.interviews.last.name,[qs,qs.interviews.last]
+						- else
+							%li.no_interviews No Interviews
 
 .span3
 	= link_to 'Create New QuestionSet', new_question_set_path, :class => 'btn btn-large btn-warning btn-support-ask'

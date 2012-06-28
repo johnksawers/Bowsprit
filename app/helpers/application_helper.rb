@@ -3,10 +3,10 @@ module ApplicationHelper
         f.hidden_field(:_destroy) + link_to('Remove','#', :class => 'remove_question_button')
     end
 
-    def build_dynamic_question_form(f)
+    def build_dynamic_question_form(f,question)
         new_object = f.object.class.reflect_on_association(:questions).klass.new
         fields = f.fields_for(:questions, new_object, :child_index => 'new_question') do |builder|
-            render('question_fields', :f => builder)
+            render('question_fields', :f => builder, :question => question)
         end
         escape_javascript(fields)
     end

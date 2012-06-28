@@ -1,12 +1,9 @@
 .span12
-	%h1.page-title Edit Question
-#status
+	%h1.page-title= @question.title
 .span12
-	= form_for [@question] do |f|
-		.field
-			= f.label :title
-			= f.text_field :title
-			= f.label :subtitle
-			= f.text_field :subtitle
-		.actions
-			= f.submit 'Save'
+	.widget
+		.widget-header
+			.icon.icon.th.list
+			%h3 Edit
+		.widget-content
+			= render 'form'

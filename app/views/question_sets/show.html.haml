@@ -9,7 +9,7 @@
 			- @qs.errors.full_messages.each do |msg|
 				%li= msg
 .span9
-	.widget.widget-table.action-table.question-set-widget
+	.widget.question-set-widget.widget-nopad
 		.widget-header
 			.icon.icon.th.list
 			%h3
@@ -18,8 +18,8 @@
 		.widget-content.question-list
 			= form_for @qs do |f|
 				:javascript
-					var dynamic_question_form="#{build_dynamic_question_form f}";
-				%p#new_question_fields_container{:style => 'display:none'}
+					var dynamic_question_form="#{build_dynamic_question_form f, nil }";
+				%p#new_question_fields_container.edit_inset{:style => 'display:none'}
 				#ul
 					- if @qs.questions.empty?
 						%li No questions for this QuestionSet, add some
@@ -29,8 +29,8 @@
 								= edit_link edit_question_path(q)
 								=q.title
 								=link_to 'All Answers', question_path(q), :class => 'btn btn-mini btn-right'
-								%div.edit_fields.hidden{:id => "#{q.title.underscore}_edit_fields"}
+								%div.edit_fields.edit_insert{:id => "#{q.title.underscore}_edit_fields",:style => 'display:none'}
 									=f.fields_for(:questions,q) do |builder|
-										=render('question_fields', :f => builder)
+										=render('question_fields', :f => builder, :question => q)
 .span3
 	= link_to 'Edit This QuestionSet', edit_question_set_path(@qs), :class => 'btn btn-large btn-warning btn-support-ask'
