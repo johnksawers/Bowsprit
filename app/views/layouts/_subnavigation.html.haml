@@ -18,12 +18,16 @@
 					%li{class: (request.fullpath == edit_user_registration_path) && 'active'}
 						%a{:href => edit_user_registration_path}
 							.icon.icon-wrench
-							%span Settings
+							%span Account Info
 					%li
 						%a{:href => sign_out_path}
 							.icon.icon-signin
 							%span Sign Out
 				- else
+					%li{class: (request.fullpath == root_path) && 'active'}
+						%a{:href => root_path}
+							.icon.icon-home
+							%span Home
 					%li{class: (request.fullpath == about_path) && 'active'}
 						%a{:href => about_path}
 							.icon.icon-beaker
