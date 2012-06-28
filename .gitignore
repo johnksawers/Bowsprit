@@ -66,4 +66,5 @@ tmp/*
 .idea/*
 .rvmrc
 .powrc
+.rails_footnotes
 coverage
