@@ -1,10 +1,6 @@
 %header.navbar.navbar-fixed-top
 	%nav.navbar-inner
 		.container
-			.btn.btn-navbar{"data-toggle" => 'collapse', "data-target" => '.nav-collapse'}
-				.icon-bar
-				.icon-bar
-				.icon-bar
 			%a.brand{:href => root_path}
 				.icon-user
 				.icon-comments
@@ -13,37 +9,7 @@
 			- if user_signed_in?
 				.nav-collapse
 					%ul.nav.pull-right
-						%li.dropdown
-							%a{:href => "#", :class => "dropdown-toggle", "data-toggle" => "dropdown"}
-								%i.icon-cog
-								Settings
-								%b.caret
-							%ul.dropdown-menu
-								%li
-									%a{:href => "javascript:;"}
-										Account Settings
-								%li
-									%a{:href => "javascript:;"}
-										Privacy Settings
-								%li.divider
-								%li
-									%a{:href =>"javascript:;"}
-										Help
-						%li.dropdown
-							%a{:href =>"#", :class => "dropdown-toggle", "data-toggle" => "dropdown"}
-								.icon.icon-user
-								= current_user.name
-								%b.caret
-							%ul.dropdown-menu
-								%li
-									%a{:href =>"javascript:;"}
-									My Profile
-								%li
-									%a{:href =>"javascript:;"}
-									My Groups
-								%l.divider
-								%li
-									%a{:href => "javascript:;"}
-										Logout
-				%form.navbar-search.pull-right
-					%input.search-query{:type => "text", :placeholder => "Search"}
+						%li
+							= link_to current_user.name, edit_user_registration_path
+				-#%form.navbar-search.pull-right
+				-#	%input.search-query{:type => "text", :placeholder => "Search"}
