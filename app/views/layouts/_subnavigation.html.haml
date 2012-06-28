@@ -3,7 +3,7 @@
 		.container
 			%ul.mainnav
 				- if user_signed_in?
-					%li{class: (request.url == root_path) && 'active'}
+					%li{class: (request.fullpath == root_path) && 'active'}
 						%a{:href => root_path}
 							.icon.icon-dashboard
 							%span Dashboard
