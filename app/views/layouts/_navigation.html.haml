@@ -1,11 +1,13 @@
 %header.navbar.navbar-fixed-top
 	%nav.navbar-inner
 		.container
-			%a.brand{:href => root_path}
-				.icon-user
-				.icon-comments
-				.icon-user
-				Repart&eacute;e
+			.app-title
+				%a.logo{:href => root_path}
+					.icon-user
+					.icon-comments
+					.icon-user
+				%a.app-name{:href => root_path}
+					Repart&eacute;e
 			- if user_signed_in?
 				.nav-collapse
 					%ul.nav.pull-right

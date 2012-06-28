@@ -84,3 +84,31 @@ a {
 	color: #AAAAAA;
 	font-size: $small-label-text
 }
+
+.avbar .title{
+	float: left;
+}
+
+.navbar .app-name{
+	color: $link-color;
+	font: 400 30px 'Dosis','Open Sans',Verdana, Arial, sans-serif;
+	display: block;
+	float: left;
+	margin-left: 20px;
+}
+
+.logo{
+	color: $link-color;
+	font-size: 30px;
+	display: block;
+	float: left;
+	padding-top: 7px;
+}
+
+.logo .icon-user{
+	margin: 5px;
+}
+
+.logo .icon-comments{
+	margin: 5px 5px 5px 0;
+}
