@@ -1,0 +1,12 @@
+.span4
+	.widget
+		.widget-header
+			.icon.icon.th.list
+			%h3  Forgot your password?
+		.widget-content
+			= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+				= devise_error_messages!
+				= f.label :email
+				= f.email_field :email
+				= f.submit 'Send me reset password instructions', :class => 'btn btn-primary'
+				= render :partial => "devise/shared/links"
