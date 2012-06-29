@@ -5,11 +5,9 @@
 		- @qs.errors.full_messages.each do |msg|
 			%li= msg
 
-= form_for @qs do |f|
-	.field
-		= f.label :name
-		= f.text_field :name
-	.actions
-		= f.submit 'Save', :class => 'btn btn-primary'
-		- if @qs.persisted?
-			=link_to "Destroy", @qs, :confirm => 'Are you sure?', :method => :delete
+= form_for @qs, :html => {:class => 'form-inline'} do |f|
+	-#= f.label :name
+	= f.text_field :name
+	= f.submit 'Save, and head on to the meat of it', :class => 'btn btn-primary'
+	- if @qs.persisted?
+		=link_to "Delete This QuestionSet", @qs, :confirm => "Are you sure? this will delete #{pluralize(@qs.questions.count, 'questions')} and their answers", :class => 'btn-right', :method => :delete

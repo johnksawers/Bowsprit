@@ -34,6 +34,9 @@ $(document).ready(function () {
 	$('#add_question_button').mousedown(function () {
 		add_question_fields();
 	});
+	$('#inline_add_question_button').mousedown(function () {
+		add_question_fields();
+	});
 	$('.remove_question_button').mousedown(function () {
 		remove_question(this);
 	});

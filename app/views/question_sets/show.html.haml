@@ -11,7 +11,7 @@
 .span9
 	.widget.question-set-widget.widget-nopad
 		.widget-header
-			.icon.icon.th.list
+			.icon.icon-star
 			%h3
 				Questions
 			= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'add_question_button'
@@ -22,13 +22,15 @@
 				%p#new_question_fields_container.edit_inset{:style => 'display:none'}
 				#ul
 					- if @qs.questions.empty?
-						%li No questions for this QuestionSet, add some
+						%li
+							No questions for this QuestionSet.
+							= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'inline_add_question_button'
 					- else
 						- @qs.questions.each do |q|
 							%li
 								= edit_link edit_question_path(q)
 								=q.title
-								=link_to 'All Answers', question_path(q), :class => 'btn btn-mini btn-right'
+								=link_to 'All Answers', question_path(q), :class => 'btn btn-mini btn-right' if q.answers.any?
 								%div.edit_fields.edit_insert{:id => "#{q.title.underscore}_edit_fields",:style => 'display:none'}
 									=f.fields_for(:questions,q) do |builder|
 										=render('question_fields', :f => builder, :question => q)
