@@ -1,4 +1,5 @@
 class QuestionSetsController < ApplicationController
+    before_filter :authenticate_user!
     # GET /question_sets
     def index
         redirect_to root_path
