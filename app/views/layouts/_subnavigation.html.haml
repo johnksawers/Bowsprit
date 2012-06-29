@@ -7,10 +7,10 @@
 						%a{:href => root_path}
 							.icon.icon-dashboard
 							%span Dashboard
-					%li{class: (request.fullpath == faq_path) && 'active'}
-						%a{:href => faq_path}
-							.icon.icon-pushpin
-							%span FAQ
+					-#%li{class: (request.fullpath == faq_path) && 'active'}
+					-#	%a{:href => faq_path}
+					-#		.icon.icon-pushpin
+					-#		%span FAQ
 					%li{class: (request.fullpath == about_path) && 'active'}
 						%a{:href => about_path}
 							.icon.icon-beaker
