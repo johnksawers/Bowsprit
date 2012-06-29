@@ -5,7 +5,7 @@ $body-text-color: #000000;
 $small-label-text: 12px;
 
 body{
-	background-image: image-url('escheresque.png')
+	background: image-url('escheresque.png') repeat scroll 0 0 #FFFFFF;
 }
 
 ul {
@@ -24,7 +24,8 @@ a {
 }
 
 .page-title {
-	line-height: 45px;
+	line-height: auto;
+	margin:5px
 }
 
 .subnavbar {
@@ -111,4 +112,18 @@ a {
 
 .logo .icon-comments{
 	margin: 5px 5px 5px 0;
+}
+
+#status{
+	background-color: green;
+	color: #FFFFFF;
+	border-radius: 15px 15px 15px 15px;
+	left: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 30px 15px 0;
+	position: fixed;
+	text-align: center;
+	top: -35px;
+	z-index: 99;
 }

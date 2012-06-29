@@ -1,11 +1,11 @@
-.span12
-	%h1.page-title Conduct Interview
 #status
 .span12
-	= form_for [@qs] do |f|
-		.field
-			= f.label :name
-			= f.text_field :name
+	.widget
+		.widget-header
+			%h1.page-title Conduct Interview
+		.widget-content.answer
+			%h3= pluralize @qs.questions.count, 'Questions'
+.span12
 	= form_for [@qs,@interview], :remote => :true, :html => { :id => 'interview_form'} do |f|
 		-if @interview.errors.any?
 			#error_explanation
@@ -13,13 +13,13 @@
 				%ul
 				- @interview.errors.full_messages.each do |msg|
 					%li= msg
-
-		%h3="#{@qs.questions.count} Questions"
-		.questions
-			-@interview.answers.each do |a|
-				- q = a.question
-				.question=q.title
-				.subtitle=q.subtitle
-				=render('answer_form',:f =>f, :answer => a,:interview => @interview)
+		-@interview.answers.each do |a|
+			.widget.interview-widget
+				.widget-header
+					%h3
+						.question_title= a.question.title
+						.question_subtitle= a.question.subtitle
+				.widget-content.answer
+					=render('answer_form', :f =>f, :answer => a, :interview => @interview)
 		.actions
-			= f.submit 'Save'
+			= link_to 'Interview already saved....go to Dashboard', root_path, :class => 'btn btn-primary'

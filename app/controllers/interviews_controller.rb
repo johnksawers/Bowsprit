@@ -23,7 +23,7 @@ class InterviewsController < ApplicationController
     # GET /interviews/new
     # GET /interviews/new.json
     def new
-        @qs = QuestionSet.find(params[:question_set_id])
+        @qs = QuestionSet.find(params[:id])
         @interview = @qs.interviews.build
         respond_to do |format|
             format.html # new.html.erb
