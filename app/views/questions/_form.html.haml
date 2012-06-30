@@ -14,4 +14,4 @@
 	.actions
 		= f.submit 'Save', :class => 'btn btn-primary'
 		- if @question.persisted?
-			=link_to "Destroy", @question, :confirm => 'Are you sure?', :method => :delete
+			=link_to "Delete", @question, :confirm => "Are you sure? This question has #{pluralize @question.answers.count, 'answers'}", :method => :delete

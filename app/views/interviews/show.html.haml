@@ -8,18 +8,17 @@
 		%ul
 			- @interview.errors.full_messages.each do |msg|
 				%li= msg
-.span9
+.span12
 	- if @interview.answers.empty?
 		.widget.interview-widget
 			.widget-header
-				.icon.icon.th.list
+				.icon.icon-star
 			.widget-content.answer
-				No answers for this question, add some
+				No answers for this question, you'll need to conduct an interview first
 	-else
 		- @interview.answers.each do |a|
 			.widget.interview-widget
 				.widget-header
-					.icon.icon.th.list
 					%h3
 						.question_title= a.question.title
 						.question_subtitle= a.question.subtitle

@@ -1,10 +1,6 @@
 #status.status-hover
 .span12
-	.widget
-		.widget-header
-			%h1.page-title Conduct Interview
-		.widget-content.answer
-			%h3= pluralize @qs.questions.count, 'Questions'
+	%h1.page-title Conduct Interview: #{@interview.name}
 .span12
 	= form_for [@qs,@interview], :remote => :true, :html => { :id => 'interview_form'} do |f|
 		-if @interview.errors.any?
