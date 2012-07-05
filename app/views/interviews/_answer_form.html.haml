@@ -1,7 +1,7 @@
 .field
 	= f.fields_for :answers,answer do |a|
 		= a.label :response
-		= a.text_area :response
+		= a.text_area :response, :class => 'response'
 		-#= a.label :response_matches
 		-#= a.checkbox :response_matches
 		= a.hidden_field :question_id

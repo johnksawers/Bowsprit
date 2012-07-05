@@ -21,6 +21,6 @@
 				.widget-content.answer
 					=render('answer_form', :f =>f, :answer => a, :interview => @interview)
 					- if question_count != num_questions
-						%a{:href => "\#question#{question_count+1}", :class => 'btn btn-warning'} NEXT QUESTION
+						%a{:href => "\#question#{question_count+1}", :class => 'btn btn-warning btn-next-question'} NEXT QUESTION
 		.actions
 			= link_to 'Interview already saved....go to Dashboard', root_path, :class => 'btn btn-primary'

@@ -2,8 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.question_title{
+	font-size: 24px;
+}
+
 .question_subtitle{
-	font-size: 11px;
+	margin-top: 5px;
+	font-size: 15px;
 	font-weight: normal;
 	color: #AAA;
+}
+
+textarea.response{
+	height: 70%;
+	width: 100%;
+}
+
+.btn-next-question{
+	width: 100%;
+	font-size: 30px;
+	padding: 20px;
 }
