@@ -9,7 +9,10 @@
 				%ul
 				- @interview.errors.full_messages.each do |msg|
 					%li= msg
+		- question_count = 0
+		- num_questions = @interview.answers.count
 		-@interview.answers.each do |a|
+			%a{:name => "question#{question_count+=1}"}
 			.widget.interview-widget
 				.widget-header
 					%h3
@@ -17,5 +20,7 @@
 						.question_subtitle= a.question.subtitle
 				.widget-content.answer
 					=render('answer_form', :f =>f, :answer => a, :interview => @interview)
+					- if question_count != num_questions
+						%a{:href => "\#question#{question_count+1}", :class => 'btn btn-warning'} NEXT QUESTION
 		.actions
 			= link_to 'Interview already saved....go to Dashboard', root_path, :class => 'btn btn-primary'
