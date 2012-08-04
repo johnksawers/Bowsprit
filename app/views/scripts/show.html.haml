@@ -1,12 +1,12 @@
 .span12
 	%h2.page-title
-		="QuestionSet: #{@qs.name}"
+		="Script: #{@s.name}"
 .span12
-	-if @qs.errors.any?
+	-if @s.errors.any?
 		#error_explanation
-		%h2= "#{pluralize(@qs.errors.count, "error")} prohibited this question_set from being saved:"
+		%h2= "#{pluralize(@s.errors.count, "error")} prohibited this script from being saved:"
 		%ul
-			- @qs.errors.full_messages.each do |msg|
+			- @s.errors.full_messages.each do |msg|
 				%li= msg
 .span9
 	.widget.question-set-widget.widget-nopad
@@ -16,17 +16,17 @@
 				Questions
 			= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'add_question_button'
 		.widget-content.question-list
-			= form_for @qs do |f|
+			= form_for @s do |f|
 				:javascript
 					var dynamic_question_form="#{build_dynamic_question_form f, nil }";
 				%p#new_question_fields_container.edit_inset{:style => 'display:none'}
 				#ul
-					- if @qs.questions.empty?
+					- if @s.questions.empty?
 						%li
-							No questions for this QuestionSet.
+							No questions for this Script.
 							= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'inline_add_question_button'
 					- else
-						- @qs.questions.each do |q|
+						- @s.questions.each do |q|
 							%li
 								= edit_link edit_question_path(q)
 								=q.title
@@ -35,4 +35,4 @@
 									=f.fields_for(:questions,q) do |builder|
 										=render('question_fields', :f => builder, :question => q)
 .span3
-	= link_to 'Edit This QuestionSet', edit_question_set_path(@qs), :class => 'btn btn-large btn-warning btn-support-ask'
+	= link_to 'Edit This Script', edit_script_path(@s), :class => 'btn btn-large btn-warning btn-support-ask'

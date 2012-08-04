@@ -1,7 +1,7 @@
 Feature: Dashboard
   In order to conduct interviews
   A user
-  Should be able to see QuestionSets
+  Should be able to see Scripts
 
     Scenario: User is not signed up
       Given I do not exist as a user

@@ -11,7 +11,7 @@ Repartee::Application.routes.draw do
     end
     #resources :users, :only => [:show, :index]
 
-    resources :question_sets do
+    resources :scripts do
         resources :interviews
     end
     resources :interviews do
@@ -22,6 +22,6 @@ Repartee::Application.routes.draw do
     get '/pricing', :to => 'home#pricing', :as => 'pricing'
     get '/faq', :to => 'home#faq', :as => 'faq'
     get '/about', :to => 'home#about', :as => 'about'
-    match 'question_sets/:id/conduct_interview', :to => 'interviews#new', :as => 'conduct_interview'
+    match 'scripts/:id/conduct_interview', :to => 'interviews#new', :as => 'conduct_interview'
 
 end

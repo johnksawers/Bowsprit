@@ -18,26 +18,26 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe QuestionSetsController do
+describe ScriptsController do
 
   # This should return the minimal set of attributes required to create a valid
-  # QuestionSet. As you add validations to QuestionSet, be sure to
+  # Script. As you add validations to Script, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
     {}
   end
 
   describe "GET index" do
-    it "assigns all question_sets as @question_sets" do
-      interview = QuestionSet.create! valid_attributes
+    it "assigns all scripts as @scripts" do
+      interview = Script.create! valid_attributes
       get :index
-      assigns(:question_sets).should eq([interview])
+      assigns(:scripts).should eq([interview])
     end
   end
 
   describe "GET show" do
     it "assigns the requested questionset as @questionset" do
-      interview = QuestionSet.create! valid_attributes
+      interview = Script.create! valid_attributes
       get :show, :id => interview.id.to_s
       assigns(:questionset).should eq(interview)
     end
@@ -46,13 +46,13 @@ describe QuestionSetsController do
   describe "GET new" do
     it "assigns a new questionset as @questionset" do
       get :new
-      assigns(:questionset).should be_a_new(QuestionSet)
+      assigns(:questionset).should be_a_new(Script)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested questionset as @questionset" do
-      interview = QuestionSet.create! valid_attributes
+      interview = Script.create! valid_attributes
       get :edit, :id => interview.id.to_s
       assigns(:questionset).should eq(interview)
     end
@@ -60,35 +60,35 @@ describe QuestionSetsController do
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new QuestionSet" do
+      it "creates a new Script" do
         expect {
           post :create, :questionset => valid_attributes
-        }.to change(QuestionSet, :count).by(1)
+        }.to change(Script, :count).by(1)
       end
 
       it "assigns a newly created questionset as @questionset" do
         post :create, :questionset => valid_attributes
-        assigns(:questionset).should be_a(QuestionSet)
+        assigns(:questionset).should be_a(Script)
         assigns(:questionset).should be_persisted
       end
 
       it "redirects to the created questionset" do
         post :create, :questionset => valid_attributes
-        response.should redirect_to(QuestionSet.last)
+        response.should redirect_to(Script.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved questionset as @questionset" do
         # Trigger the behavior that occurs when invalid params are submitted
-        QuestionSet.any_instance.stub(:save).and_return(false)
+        Script.any_instance.stub(:save).and_return(false)
         post :create, :questionset => {}
-        assigns(:questionset).should be_a_new(QuestionSet)
+        assigns(:questionset).should be_a_new(Script)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        QuestionSet.any_instance.stub(:save).and_return(false)
+        Script.any_instance.stub(:save).and_return(false)
         post :create, :questionset => {}
         response.should render_template("new")
       end
@@ -98,23 +98,23 @@ describe QuestionSetsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested questionset" do
-        interview = QuestionSet.create! valid_attributes
-        # Assuming there are no other question_sets in the database, this
-        # specifies that the QuestionSet created on the previous line
+        interview = Script.create! valid_attributes
+        # Assuming there are no other scripts in the database, this
+        # specifies that the Script created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        QuestionSet.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+        Script.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => interview.id, :questionset => {'these' => 'params'}
       end
 
       it "assigns the requested questionset as @questionset" do
-        interview = QuestionSet.create! valid_attributes
+        interview = Script.create! valid_attributes
         put :update, :id => interview.id, :questionset => valid_attributes
         assigns(:questionset).should eq(interview)
       end
 
       it "redirects to the questionset" do
-        interview = QuestionSet.create! valid_attributes
+        interview = Script.create! valid_attributes
         put :update, :id => interview.id, :questionset => valid_attributes
         response.should redirect_to(interview)
       end
@@ -122,17 +122,17 @@ describe QuestionSetsController do
 
     describe "with invalid params" do
       it "assigns the questionset as @questionset" do
-        interview = QuestionSet.create! valid_attributes
+        interview = Script.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        QuestionSet.any_instance.stub(:save).and_return(false)
+        Script.any_instance.stub(:save).and_return(false)
         put :update, :id => interview.id.to_s, :questionset => {}
         assigns(:questionset).should eq(interview)
       end
 
       it "re-renders the 'edit' template" do
-        interview = QuestionSet.create! valid_attributes
+        interview = Script.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        QuestionSet.any_instance.stub(:save).and_return(false)
+        Script.any_instance.stub(:save).and_return(false)
         put :update, :id => interview.id.to_s, :questionset => {}
         response.should render_template("edit")
       end
@@ -141,14 +141,14 @@ describe QuestionSetsController do
 
   describe "DELETE destroy" do
     it "destroys the requested questionset" do
-      interview = QuestionSet.create! valid_attributes
+      interview = Script.create! valid_attributes
       expect {
         delete :destroy, :id => interview.id.to_s
-      }.to change(QuestionSet, :count).by(-1)
+      }.to change(Script, :count).by(-1)
     end
 
-    it "redirects to the question_sets list" do
-      interview = QuestionSet.create! valid_attributes
+    it "redirects to the scripts list" do
+      interview = Script.create! valid_attributes
       delete :destroy, :id => interview.id.to_s
       response.should redirect_to(interviews_url)
     end

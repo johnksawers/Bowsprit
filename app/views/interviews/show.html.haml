@@ -4,7 +4,7 @@
 .span12
 	-if @interview.errors.any?
 		#error_explanation
-		%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question_set from being saved:"
+		%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this script from being saved:"
 		%ul
 			- @interview.errors.full_messages.each do |msg|
 				%li= msg

@@ -1,0 +1,13 @@
+-if @s.errors.any?
+	#error_explanation
+		%h2= "#{pluralize(@s.errors.count, "error")} prohibited this Script from being saved:"
+		%ul
+		- @s.errors.full_messages.each do |msg|
+			%li= msg
+
+= form_for @s, :html => {:class => 'form-inline'} do |f|
+	-#= f.label :name
+	= f.text_field :name
+	= f.submit 'Save, and head on to the meat of it', :class => 'btn btn-primary'
+	- if @s.persisted?
+		=link_to "Delete This Script", @s, :confirm => "Are you sure? this will delete #{pluralize(@s.questions.count, 'questions')} and their answers", :class => 'btn-right', :method => :delete

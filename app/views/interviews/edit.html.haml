@@ -2,7 +2,7 @@
 .span12
 	%h1.page-title Conduct Interview: #{@interview.name}
 .span12
-	= form_for [@qs,@interview], :remote => :true, :html => { :id => 'interview_form'} do |f|
+	= form_for [@s,@interview], :remote => :true, :html => { :id => 'interview_form'} do |f|
 		-if @interview.errors.any?
 			#error_explanation
 				%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"

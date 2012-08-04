@@ -1,17 +1,17 @@
 .span12
 	%h1.page-title
-		All Interviews for QuestionSet
-		%span.qs_name= @qs.name
+		All Interviews for Script
+		%span.qs_name= @s.name
 .span9
 	-# from outer space
-	- if @qs.interviews.empty?
+	- if @s.interviews.empty?
 		.widget.widget-table.action-table
 			.widget-header
 				.icon.icon.th.list
-				%h3.no_question_sets
-					No Interviews, #{link_to 'Create one now', new_question_set_interview_path(@qs)}
+				%h3.no_scripts
+					No Interviews, #{link_to 'Create one now', new_script_interview_path(@s)}
 	-else
-		- @qs.interviews.each do |i|
+		- @s.interviews.each do |i|
 			.widget.widget-table.action-table.question-set-list
 				.widget-header
 					.icon.icon-star
@@ -19,9 +19,9 @@
 				.widget-content
 					%ul
 						%li.interview_action
-							= edit_link edit_question_set_interview_path(@qs,i)
+							= edit_link edit_script_interview_path(@s,i)
 							#{i.answers.count} Answers
-							= link_to 'Show Answers', question_set_interview_path(@qs,i), :class => 'btn btn-mini btn-right'
+							= link_to 'Show Answers', script_interview_path(@s,i), :class => 'btn btn-mini btn-right'
 
 .span3
-	= link_to 'Conduct New Interview', new_question_set_interview_path(@qs), :class => 'btn btn-large btn-warning btn-support-ask'
+	= link_to 'Conduct New Interview', new_script_interview_path(@s), :class => 'btn btn-large btn-warning btn-support-ask'

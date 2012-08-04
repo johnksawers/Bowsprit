@@ -61,7 +61,7 @@ class QuestionsController < ApplicationController
 
         respond_to do |format|
             if @question.update_attributes(params[:question])
-                format.html { redirect_to question_set_path(@question.question_set), notice: 'Question was successfully updated.' }
+                format.html { redirect_to script_path(@question.script), notice: 'Question was successfully updated.' }
                 format.json { head :ok }
             else
                 format.html { render action: "edit" }
@@ -74,11 +74,11 @@ class QuestionsController < ApplicationController
     # DELETE /questions/1.json
     def destroy
         @question = Question.find(params[:id])
-        @qs       = @question.question_set
+        @s       = @question.script
         @question.destroy
 
         respond_to do |format|
-            format.html { redirect_to question_set_path(@qs) }
+            format.html { redirect_to script_path(@s) }
             format.json { head :ok }
         end
     end

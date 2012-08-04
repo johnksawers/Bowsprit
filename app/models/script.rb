@@ -1,4 +1,4 @@
-class QuestionSet < ActiveRecord::Base
+class Script < ActiveRecord::Base
   has_many :questions, :dependent => :destroy
   accepts_nested_attributes_for :questions, :reject_if => :reject_question, :allow_destroy => true
   has_many :interviews, :dependent => :destroy

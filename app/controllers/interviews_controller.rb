@@ -3,7 +3,7 @@ class InterviewsController < ApplicationController
     # GET /interviews
     # GET /interviews.json
     def index
-        @qs = QuestionSet.find(params[:question_set_id])
+        @s = Script.find(params[:script_id])
         respond_to do |format|
             format.html # index.html.erb
             format.json { render json: @interviews }
@@ -23,8 +23,8 @@ class InterviewsController < ApplicationController
     # GET /interviews/new
     # GET /interviews/new.json
     def new
-        @qs        = QuestionSet.find(params[:id])
-        @interview = @qs.interviews.build
+        @s        = Script.find(params[:id])
+        @interview = @s.interviews.build
         respond_to do |format|
             format.html # new.html.erb
             format.json { render json: @interview }
@@ -33,13 +33,13 @@ class InterviewsController < ApplicationController
 
     # GET /interviews/1/edit
     def edit
-        @qs        = QuestionSet.find(params[:question_set_id], :include => [:questions])
+        @s        = Script.find(params[:script_id], :include => [:questions])
         @interview = Interview.find(params[:id])
         # if no answers are present, create all the empty ones needed for the interview
         # one for each question, this way we don't have to create them over ajax, and we have the IDs
         # If there are any answers, don't create any, or it will lead to duplicates
         if (@interview.answers.empty?)
-            @qs.questions.each do |q|
+            @s.questions.each do |q|
                 @interview.answers.create(:response => '', :question_id => q.id)
             end
         end
@@ -48,15 +48,15 @@ class InterviewsController < ApplicationController
     # POST /interviews
     # POST /interviews.json
     def create
-        @qs        = QuestionSet.find(params[:interview][:question_set_id])
+        @s        = Script.find(params[:interview][:script_id])
         @interview = Interview.new(params[:interview])
         respond_to do |format|
             if @interview.save
-                format.html { redirect_to edit_question_set_interview_path(@qs, @interview), notice: 'Interview was successfully created.' }
+                format.html { redirect_to edit_script_interview_path(@s, @interview), notice: 'Interview was successfully created.' }
                 format.json { render json: @interview, status: :created, location: @interview }
             else
                 format.html { render action: "new" }
-                format.json { render json: @qs.errors, status: :unprocessable_entity }
+                format.json { render json: @s.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -64,7 +64,7 @@ class InterviewsController < ApplicationController
     # PUT /interviews/1
     # PUT /interviews/1.json
     def update
-        @qs        = QuestionSet.find(params[:question_set_id], :include => [:questions])
+        @s        = Script.find(params[:script_id], :include => [:questions])
         @interview = Interview.find(params[:id])
 
         if @interview.update_attributes(params[:interview])

@@ -1,21 +1,21 @@
-def delete_question_sets
-    QuestionSet.delete_all
+def delete_scripts
+    Script.delete_all
 end
 
-def add_question_set(qs_name)
-    delete_question_sets
-    visit new_question_set_path
+def add_script(qs_name)
+    delete_scripts
+    visit new_script_path
     fill_in "Name", :with => qs_name
     click_button "Save"
 end
 
-When /^I have no QuestionSets$/ do
-    delete_question_sets
+When /^I have no Scripts$/ do
+    delete_scripts
 end
 
-When /^I have a QuestionSet$/ do
-  delete_question_sets
-  add_question_set("Test QuestionSet")
+When /^I have a Script$/ do
+  delete_scripts
+  add_script("Test Script")
 end
 
 When /^I visit my dashboard$/ do
@@ -27,6 +27,6 @@ Then /^I should see the no interviews message$/ do
   page.should have_content "No Interviews set up"
 end
 
-Then /^I should see the QuestionSet listed$/ do
-  page.should have_content "Test QuestionSet"
+Then /^I should see the Script listed$/ do
+  page.should have_content "Test Script"
 end

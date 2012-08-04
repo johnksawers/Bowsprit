@@ -3,7 +3,7 @@
 		.widget-header
 			%h1.page-title Start Interview
 		.widget-content
-			= form_for @interview, :method => :post, :url => question_set_interviews_path(@qs) do |f|
+			= form_for @interview, :method => :post, :url => script_interviews_path(@s) do |f|
 				-if @interview.errors.any?
 					#error_explanation
 						%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"
@@ -13,6 +13,6 @@
 				.fields
 					= f.label :name
 					= f.text_field :name
-					= f.hidden_field :question_set_id
+					= f.hidden_field :script_id
 				.actions
 					= f.submit 'Save and Begin Interview', :class => 'btn btn-primary'
