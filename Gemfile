@@ -25,7 +25,6 @@ gem 'database_cleaner', '>= 0.7.2', :group => :test
 gem 'launchy', '>= 2.1.0', :group => :test
 gem 'simplecov', :require => false, :group => :test
 
-gem 'heroku'
 gem 'bluecloth'
 gem 'haml', '>= 3.1.6'
 gem 'hominid'
