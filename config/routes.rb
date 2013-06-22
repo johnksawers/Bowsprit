@@ -1,4 +1,4 @@
-Repartee::Application.routes.draw do
+Bowsprit::Application.routes.draw do
     authenticated :user do
         root :to => 'dashboard#index'
     end

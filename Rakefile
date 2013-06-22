@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Repartee::Application.load_tasks
+Bowsprit::Application.load_tasks

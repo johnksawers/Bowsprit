@@ -1,19 +1,18 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 gem 'rails', '~>3.2.0'
 gem 'mysql2'
 
 group :assets do
-    gem 'sass-rails', '~> 3.2.3'
-    gem 'coffee-rails', '~> 3.2.1'
-    gem 'uglifier', '>= 1.0.3'
+    gem 'sass-rails'
+    gem 'coffee-rails'
+    gem 'uglifier'
     gem 'jquery-rails'
     gem 'bootstrap-sass', '>= 2.0.3'
 end
 
 gem 'powder', :group => :development
 gem 'haml-rails', '>= 0.3.4', :group => :development
-gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 
 gem 'rspec-rails', '>= 2.10.1', :group => [:development, :test]
 gem 'factory_girl_rails', '>= 3.3.0', :group => [:development, :test]
@@ -26,13 +25,12 @@ gem 'launchy', '>= 2.1.0', :group => :test
 gem 'simplecov', :require => false, :group => :test
 
 gem 'bluecloth'
-gem 'haml', '>= 3.1.6'
+gem 'haml'
 gem 'hominid'
-gem 'devise', '>= 2.1.0'
-gem 'cancan', '>= 1.6.7'
+gem 'devise'
+gem 'cancan'
 gem 'rolify', '>= 3.1.0'
 gem 'will_paginate', '>= 3.0.3'
-
 
 gem 'pg', :group => :production
 gem 'thin', :group => :production

@@ -1,4 +1,4 @@
-Repartee::Application.configure do
+Bowsprit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -61,7 +61,7 @@ Repartee::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'repartee.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'bowsprit.heroku.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp

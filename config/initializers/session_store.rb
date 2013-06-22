@@ -1,1 +1,1 @@
-Repartee::Application.config.session_store :active_record_store
+Bowsprit::Application.config.session_store :active_record_store
