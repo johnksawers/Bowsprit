@@ -54,17 +54,13 @@ tmp/*
 # Mac finder artifacts
 .DS_Store
 
-# Netbeans project directory
-/nbproject/
-
 # Textmate project files
 /*.tmpproj
 
 # vim artifacts
 **.swp
 
-.idea/*
+.idea
 .rvmrc
 .powrc
-.rails_footnotes
 coverage
