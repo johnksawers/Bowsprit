@@ -1,4 +1,4 @@
-Repart&eacute;e
+Bowsprit
 =============
 
 A web application for conducting [customer development interviews](http://giffconstable.com/2011/07/12-tips-for-customer-development-interviews-revised/). Unlike most survey apps and libraries, this app is focused
