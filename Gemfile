@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'quiet_assets'
+gem 'letter_opener'
 
 group :development do
   gem 'powder'
