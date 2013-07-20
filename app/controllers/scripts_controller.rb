@@ -77,6 +77,8 @@ class ScriptsController < ApplicationController
     end
 
   def script_params
-    params.require(:script).permit(:name, :questions_attributes,:interviews_attributes)
+    params.require(:script).permit(:name,
+         questions_attributes: [:title, :subtitle, :order,:all],
+         interviews_attributes: [:name, :script_id])
   end
 end

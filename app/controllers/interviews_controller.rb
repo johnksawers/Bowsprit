@@ -49,7 +49,7 @@ class InterviewsController < ApplicationController
     # POST /interviews.json
     def create
         @s        = Script.find(params[:interview][:script_id])
-        @interview = Interview.new(params[:interview])
+        @interview = Interview.new(interview_params)
         respond_to do |format|
             if @interview.save
                 format.html { redirect_to edit_script_interview_path(@s, @interview), notice: 'Interview was successfully created.' }
@@ -67,7 +67,7 @@ class InterviewsController < ApplicationController
         @s        = Script.find(params[:script_id], :include => [:questions])
         @interview = Interview.find(params[:id])
 
-        if @interview.update_attributes(params[:interview])
+        if @interview.update_attributes(interview_params)
             render :text => 'Interview Saved'
         else
             format.json { render json: @interview.errors, status: :unprocessable_entity }
@@ -87,6 +87,7 @@ class InterviewsController < ApplicationController
     end
 
     def interview_params
-      params.require(:question).permit(:name, :answers_attributes, :script_id)
+      params.require(:interview).permit(:name, :script_id,
+          answers_attributes: [:id, :response, :response_matches, :user_id, :question_id, :interview_id])
     end
 end
