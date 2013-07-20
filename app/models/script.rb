@@ -10,5 +10,4 @@ class Script < ActiveRecord::Base
   def reject_interview(attributed)
     attributed['name'].blank?
   end
-  attr_accessible :name, :questions_attributes,:interviews_attributes
 end

@@ -85,4 +85,8 @@ class InterviewsController < ApplicationController
             format.json { head :ok }
         end
     end
+
+    def interview_params
+      params.require(:question).permit(:name, :answers_attributes, :script_id)
+    end
 end

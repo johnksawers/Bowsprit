@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
     # POST /questions
     # POST /questions.json
     def create
-        @question = Question.new(params[:question])
+        @question = Question.new(question_params))
 
         respond_to do |format|
             if @question.save
@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
         @question = Question.find(params[:id])
 
         respond_to do |format|
-            if @question.update_attributes(params[:question])
+            if @question.update_attributes(question_params)
                 format.html { redirect_to script_path(@question.script), notice: 'Question was successfully updated.' }
                 format.json { head :ok }
             else
@@ -81,5 +81,9 @@ class QuestionsController < ApplicationController
             format.html { redirect_to script_path(@s) }
             format.json { head :ok }
         end
+    end
+
+    def question_params
+      params.require(:question).permit(:title, :subtitle, :order,:all)
     end
 end

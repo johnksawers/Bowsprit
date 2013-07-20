@@ -1,7 +1,4 @@
 Bowsprit::Application.routes.draw do
-    authenticated :user do
-        root :to => 'dashboard#index'
-    end
     root :to => 'home#index'
     devise_for :users
     devise_scope :user do
@@ -22,6 +19,6 @@ Bowsprit::Application.routes.draw do
     get '/pricing', :to => 'home#pricing', :as => 'pricing'
     get '/faq', :to => 'home#faq', :as => 'faq'
     get '/about', :to => 'home#about', :as => 'about'
-    match 'scripts/:id/conduct_interview', :to => 'interviews#new', :as => 'conduct_interview'
+    get 'scripts/:id/conduct_interview', :to => 'interviews#new', :as => 'conduct_interview'
 
 end

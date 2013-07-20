@@ -35,7 +35,7 @@ class ScriptsController < ApplicationController
     # POST /scripts
     # POST /scripts.json
     def create
-        @s = current_user.scripts.build(params[:script])
+        @s = current_user.scripts.build(script_params)
 
         respond_to do |format|
             if @s.save
@@ -54,7 +54,7 @@ class ScriptsController < ApplicationController
         @s = Script.find(params[:id])
 
         respond_to do |format|
-            if @s.update_attributes(params[:script])
+            if @s.update_attributes(script_params)
                 format.html { redirect_to @s, notice: 'Script was successfully updated.' }
                 format.json { head :ok }
             else
@@ -75,4 +75,8 @@ class ScriptsController < ApplicationController
             format.json { head :ok }
         end
     end
+
+  def script_params
+    params.require(:script).permit(:name, :questions_attributes,:interviews_attributes)
+  end
 end
