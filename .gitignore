@@ -60,7 +60,6 @@ tmp/*
 # vim artifacts
 **.swp
 
-.idea
 .rvmrc
 .powrc
 coverage
