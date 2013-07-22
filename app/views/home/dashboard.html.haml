@@ -1,0 +1,36 @@
+.span12
+	%h1.page-title
+		All your Scripts
+.span9
+	-# from outer space
+	- if @user.scripts.empty?
+		.widget
+			.widget-header
+				.icon.icon.th.list
+				%h3.no_scripts
+					A Script is a group of questions that you'll use to conduct and interview
+			.widget-content
+				Click that big honker over there to get started
+				.point_at_button.icon-circle-arrow-right
+	-else
+		- @user.scripts.each do |qs|
+			.widget.widget-table.action-table.question-set-list
+				.widget-header
+					.icon.icon.th.list
+					%h3= qs.name
+				.widget-content
+					%ul
+						%li.interview_action
+							= edit_link script_path(qs)
+							= pluralize qs.questions.count, 'Question'
+							= link_to 'Conduct Interview', conduct_interview_path(qs), :class => 'btn btn-mini btn-primary btn-right'
+							= link_to 'All Interviews', script_interviews_path(qs), :class => 'btn btn-mini btn-right' if qs.interviews.any?
+						-if  qs.interviews.any?
+							%li.latest_interview
+								Latest Interview:
+								= link_to qs.interviews.last.name,[qs,qs.interviews.last]
+						- else
+							%li.no_interviews No Interviews
+
+.span3
+	= link_to 'Create New Script', new_script_path, :class => 'btn btn-large btn-warning btn-support-ask'
