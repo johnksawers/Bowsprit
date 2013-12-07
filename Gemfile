@@ -27,11 +27,14 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'quiet_assets'
-gem 'letter_opener'
 gem 'font-awesome-sass-rails'
 gem 'formtastic',          github: 'justinfrench/formtastic' #for adviceadmin
 gem 'formtastic-bootstrap'
+
+group :development do
+  gem 'quiet_assets'
+  gem 'letter_opener'
+end
 
 group :test, :development do
   gem 'rspec-rails'
