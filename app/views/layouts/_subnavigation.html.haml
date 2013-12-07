@@ -5,7 +5,7 @@
 				- if user_signed_in?
 					%li{class: (request.fullpath == root_path) && 'active'}
 						%a{:href => root_path}
-							.icon.icon-dashboard
+							%i.icon.icon-dashboard
 							%span Dashboard
 					-#%li{class: (request.fullpath == faq_path) && 'active'}
 					-#	%a{:href => faq_path}
@@ -13,34 +13,34 @@
 					-#		%span FAQ
 					%li{class: (request.fullpath == about_path) && 'active'}
 						%a{:href => about_path}
-							.icon.icon-beaker
+							%i.icon.icon-beaker
 							%span About
 					%li{class: (request.fullpath == edit_user_registration_path) && 'active'}
 						%a{:href => edit_user_registration_path}
-							.icon.icon-wrench
+							%i.icon.icon-wrench
 							%span Account Info
 					%li
 						%a{:href => sign_out_path}
-							.icon.icon-signin
+							%i.icon.icon-signin
 							%span Sign Out
 				- else
 					%li{class: (request.fullpath == root_path) && 'active'}
 						%a{:href => root_path}
-							.icon.icon-home
+							%i.icon.icon-home
 							%span Home
 					%li{class: (request.fullpath == about_path) && 'active'}
 						%a{:href => about_path}
-							.icon.icon-beaker
+							%i.icon.icon-beaker
 							%span About
 					%li{class: (request.fullpath == pricing_path) && 'active'}
 						%a{:href => pricing_path}
-							.icon.icon-bar-chart
+							%i.icon.icon-bar-chart
 							%span Pricing Plans
 					%li{class: (request.fullpath == sign_in_path) && 'active'}
 						%a{:href => sign_in_path}
-							.icon.icon-signout
+							%i.icon.icon-signout
 							%span Sign In
 					%li{class: (request.fullpath == sign_up_path) && 'active'}
 						%a{:href => sign_up_path}
-							.icon.icon-upload
+							%i.icon.icon-upload
 							%span Sign Up

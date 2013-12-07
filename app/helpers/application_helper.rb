@@ -12,7 +12,7 @@ module ApplicationHelper
     end
     def edit_link(path)
         content_tag :a, :href => path, :class => 'edit-btn' do
-            content_tag :div, '', :class => 'icon-edit'
+            content_tag :i, '', :class => 'icon-edit'
         end
     end
 end

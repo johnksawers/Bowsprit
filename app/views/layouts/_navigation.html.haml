@@ -1,17 +1,32 @@
-%header.navbar.navbar-fixed-top
-	%nav.navbar-inner
-		.container
-			.app-title
+%nav.navbar.navbar-inverse{role: "navigation"}
+	.container
+		/ Brand and toggle get grouped for better mobile display
+		.navbar-header
+			%button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+				%span.sr-only Toggle navigation
+				%i.icon-cog
+			.navbar-brand.app-title
 				%a.logo{:href => root_path}
 					.icon-user
 					.icon-comments
 					.icon-user
 				%a.app-name{:href => root_path}
 					Bowsprit
-			- if user_signed_in?
-				.nav-collapse
-					%ul.nav.pull-right
-						%li
-							= link_to current_user.name, edit_user_registration_path
-				-#%form.navbar-search.pull-right
-				-#	%input.search-query{:type => "text", :placeholder => "Search"}
+			/ Collect the nav links, forms, and other content for toggling
+		.collapse.navbar-collapse.navbar-ex1-collapse
+			%ul.nav.navbar-nav.navbar-right
+				- if user_signed_in?
+					%li.dropdown
+						%a.dropdown-toggle{"data-toggle" => "dropdown", href: "javscript:;"}
+							%i.icon-user
+							= current_user.name
+							%b.caret
+							%ul.dropdown-menu
+								%li
+									= link_to 'Profile', edit_user_registration_path
+								%li.divider
+								%li
+									= link_to 'Logout', sign_out_path
+			-#%form.navbar-form.navbar-right{role: "search"}
+			-#	.form-group
+			-#		%input.form-control.input-sm.search-query{placeholder: "Search", type: "text"}/

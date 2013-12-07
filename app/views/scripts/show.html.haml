@@ -1,38 +1,41 @@
-.span12
-	%h2.page-title
-		="Script: #{@s.name}"
-.span12
-	-if @s.errors.any?
-		#error_explanation
-		%h2= "#{pluralize(@s.errors.count, "error")} prohibited this script from being saved:"
-		%ul
-			- @s.errors.full_messages.each do |msg|
-				%li= msg
-.span9
-	.widget.question-set-widget.widget-nopad
-		.widget-header
-			.icon.icon-star
-			%h3
-				Questions
-			= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'add_question_button'
-		.widget-content.question-list
-			= form_for @s do |f|
-				:javascript
-					var dynamic_question_form="#{build_dynamic_question_form f, nil }";
-				%p#new_question_fields_container.edit_inset{:style => 'display:none'}
-				#ul
-					- if @s.questions.empty?
-						%li
-							No questions for this Script.
-							= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'inline_add_question_button'
-					- else
-						- @s.questions.each do |q|
+.row
+	.col-md-12
+		%h2.page-title
+			="Script: #{@s.name}"
+.row
+	.span12
+		-if @s.errors.any?
+			#error_explanation
+			%h2= "#{pluralize(@s.errors.count, "error")} prohibited this script from being saved:"
+			%ul
+				- @s.errors.full_messages.each do |msg|
+					%li= msg
+.row
+	.col-md-9
+		.widget.question-set-widget.widget-nopad
+			.widget-header
+				%i.icon.icon-star
+				%h3
+					Questions
+				= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'add_question_button'
+			.widget-content.question-list
+				= form_for @s do |f|
+					:javascript
+						var dynamic_question_form="#{build_dynamic_question_form f, nil }";
+					%p#new_question_fields_container.edit_inset{:style => 'display:none'}
+					%ul
+						- if @s.questions.empty?
 							%li
-								= edit_link edit_question_path(q)
-								=q.title
-								=link_to 'All Answers', question_path(q), :class => 'btn btn-mini btn-right' if q.answers.any?
-								%div.edit_fields.edit_insert{:id => "#{q.title.underscore}_edit_fields",:style => 'display:none'}
-									=f.fields_for(:questions,q) do |builder|
-										=render('question_fields', :f => builder, :question => q)
-.span3
-	= link_to 'Edit This Script', edit_script_path(@s), :class => 'btn btn-large btn-warning btn-support-ask'
+								No questions for this Script.
+								= link_to 'Add Question','#', :class => 'btn btn-small', :id => 'inline_add_question_button'
+						- else
+							- @s.questions.each do |q|
+								%li
+									= edit_link edit_question_path(q)
+									=q.title
+									=link_to 'All Answers', question_path(q), :class => 'btn btn-mini btn-right' if q.answers.any?
+									%div.edit_fields.edit_insert{:id => "#{q.title.underscore}_edit_fields",:style => 'display:none'}
+										=f.fields_for(:questions,q) do |builder|
+											=render('question_fields', :f => builder, :question => q)
+	.col-md-3
+		= link_to 'Edit This Script', edit_script_path(@s), :class => 'btn btn-large btn-warning btn-support-ask'

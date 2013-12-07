@@ -12,14 +12,14 @@
 	- if @question.answers.empty?
 		.widget.interview-widget
 			.widget-header
-				.icon.icon-star
+				%i.icon.icon-star
 			.widget-content.answer
 				No answers for this question yet.
 	-else
 		- @question.answers.each do |a|
 			.widget.interview-widget
 				.widget-header
-					.icon.icon-star
+					%i.icon.icon-star
 					%h3
 						= a.interview.name
 				.widget-content.answer

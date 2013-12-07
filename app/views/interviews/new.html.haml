@@ -1,18 +1,23 @@
-.span12
-	.widget
-		.widget-header
-			%h1.page-title Start Interview
-		.widget-content
-			= form_for @interview, :method => :post, :url => script_interviews_path(@s) do |f|
-				-if @interview.errors.any?
-					#error_explanation
-						%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"
-						%ul
-						- @interview.errors.full_messages.each do |msg|
-							%li= msg
-				.fields
-					= f.label :name
-					= f.text_field :name
-					= f.hidden_field :script_id
-				.actions
-					= f.submit 'Save and Begin Interview', :class => 'btn btn-primary'
+.row
+	.col-md-12
+		%h1.page-title Start Interview
+.row
+	.col-md-12
+		.widget
+			.widget-header
+				%i.icon.icon-star
+				%h3 You can use the Interviewee's name, and possibly a date
+			.widget-content
+				= form_for @interview, :method => :post, :url => script_interviews_path(@s) do |f|
+					-if @interview.errors.any?
+						#error_explanation
+							%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this question from being saved:"
+							%ul
+							- @interview.errors.full_messages.each do |msg|
+								%li= msg
+					.fields
+						= f.label :name
+						= f.text_field :name
+						= f.hidden_field :script_id
+					.actions
+						= f.submit 'Save and Begin Interview', :class => 'btn btn-primary'

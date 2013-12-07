@@ -1,14 +1,16 @@
 .fields
-	= f.label :title, 'Question'
-	= f.text_field :title
-	%span.form-help-inline
-		The actual question you're going to ask
-	= f.label :subtitle, 'Sub-Question'
-	= f.text_field :subtitle
-	%span.form-help-inline
-		Any extra information about the question, or reminders
-	= f.hidden_field :order, :value => '1'
-	.action
+	.row
+		= f.label :title, 'Question'
+		= f.text_field :title
+		%span.form-help-inline
+			The actual question you're going to ask
+	.row
+		= f.label :subtitle, 'Sub-Question'
+		= f.text_field :subtitle
+		%span.form-help-inline
+			Any extra information about the question, or reminders
+		= f.hidden_field :order, :value => '1'
+	.action.row
 		= f.submit 'Save', :class => 'btn btn-primary'
 		- if question && question.persisted?
 			= link_to_remove_questions 'Delete', f

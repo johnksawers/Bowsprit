@@ -1,18 +1,12 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require _font-awesome
+ *= require fonts
  *= require base-admin-theme/_bootstrap_and_overrides
  *= require base-admin-theme/base-admin
  *= require base-admin-theme/base-admin-responsive
+ *= require_tree ./pages
+ *= require_self
 */
 
 .content {
@@ -63,11 +57,9 @@ a {
 
 .widget-header a {
 	float: right;
-	margin: 6px;
 }
 
 .widget-header{
-	padding: 15px 0 0;
 	height: auto;
 }
 
@@ -77,14 +69,6 @@ a {
 .answer-list li {
 	background-color: #FFFFFF;
 	border-bottom: 1px solid #CCCCCC;
-	//box-shadow: 0 10px 15px -17px #0000FF inset;
-	//-webkit-box-shadow: 0 10px 15px -17px #0000FF inset;
-	//backgroun-image: -moz-linear-gradient(center top, #888, #444) repeat-x scroll 0 0 #3A3A3A;
-	//background-image: -webkit-gradient(linear, left top, left bottom, from(#888), to(#444)); /* Saf4+, Chrome */
-	//background-image: -webkit-linear-gradient(top, #888, #444); /* Chrome 10+, Saf5.1+, iOS 5+ */
-	//background-image: -moz-linear-gradient(top, #888, #444); /* FF3.6+ */
-	//background-image: -o-linear-gradient(top, #888, #444); /* Opera 11.10+ */
-	//background-image: linear-gradient(top bottom, #888, #444);
 	padding: 10px;
 	color: $body-text-color;
 	font-size: 14px;
@@ -97,7 +81,7 @@ a {
 .edit-btn {
 	font-size: 16px;
 	position: relative;
-	top: 5px;
+	top: 2px;
 }
 
 .edit-btn:hover {
@@ -120,36 +104,41 @@ a {
 	font-size: $small-label-text
 }
 
-.avbar .title{
-	float: left;
-}
-
 .navbar .app-name{
 	color: $link-color;
-	font: 400 30px 'Dosis','Open Sans',Verdana, Arial, sans-serif;
+	font: 600 30px 'Dosis','Open Sans',Verdana, Arial, sans-serif;
 	display: block;
 	float: left;
 	margin-left: 20px;
+}
+
+.navbar-brand {
+	color: $link-color;
+}
+
+.navbar-right{
+	margin-top: 10px;
 }
 
 .subnavbar .subnavbar-inner .container ul li.active > a{
 	color: $link-color;
 }
 
+
+
 .logo{
 	color: $link-color;
 	font-size: 30px;
 	display: block;
 	float: left;
-	padding-top: 7px;
 }
 
 .logo .icon-user{
-	margin: 5px;
+	margin-right: -5px;
 }
 
 .logo .icon-comments{
-	margin: 5px 5px 5px 0;
+	margin: 5px -5px 0 0;
 }
 
 .status-hover{

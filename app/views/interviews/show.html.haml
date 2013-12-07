@@ -1,30 +1,33 @@
-.span12
-	%h2.page-title
-		="Answers for: #{@interview.name}"
-.span12
-	-if @interview.errors.any?
-		#error_explanation
-		%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this script from being saved:"
-		%ul
-			- @interview.errors.full_messages.each do |msg|
-				%li= msg
-.span12
-	- if @interview.answers.empty?
-		.widget.interview-widget
-			.widget-header
-				.icon.icon-star
-			.widget-content.answer
-				No answers for this question, you'll need to conduct an interview first
-	-else
-		- @interview.answers.each do |a|
+.row
+	.col-md-12
+		%h2.page-title
+			="Answers for: #{@interview.name}"
+.row
+	.col-md-12
+		-if @interview.errors.any?
+			#error_explanation
+			%h2= "#{pluralize(@interview.errors.count, "error")} prohibited this script from being saved:"
+			%ul
+				- @interview.errors.full_messages.each do |msg|
+					%li= msg
+.row
+	.col-md-12
+		- if @interview.answers.empty?
 			.widget.interview-widget
 				.widget-header
-					%h3
-						.question_title= a.question.title
-						.question_subtitle= a.question.subtitle
+					%i.icon.icon-star
 				.widget-content.answer
-					%a{:href => '#', :class => 'btn btn-mini btn-right toggle_full_answer'} Expand
-					%p.short_answer
-						= a.response.truncate 130
-					%p.full_answer{:style => 'display:none'}
-						=a.response
+					No answers for this question, you'll need to conduct an interview first
+		-else
+			- @interview.answers.each do |a|
+				.widget.interview-widget
+					.widget-header
+						%h3
+							.question_title= a.question.title
+							.question_subtitle= a.question.subtitle
+					.widget-content.answer
+						%a{:href => '#', :class => 'btn btn-mini btn-right toggle_full_answer'} Expand
+						%p.short_answer
+							= a.response.truncate 130
+						%p.full_answer{:style => 'display:none'}
+							=a.response
