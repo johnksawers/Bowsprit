@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '~>4.0'
-gem 'mysql2'
+
+gem 'pg'
+gem 'unicorn'
+gem 'foreman'
 
 gem 'bluecloth'
 gem 'haml'
@@ -15,7 +18,6 @@ gem 'responders',          github: 'plataformatec/responders'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'ransack',             github: 'ernie/ransack', branch: 'rails-4'
 gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'
-gem 'formtastic',          github: 'justinfrench/formtastic' #for adviceadmin
 
 #assets
 gem 'sass-rails'
@@ -26,10 +28,9 @@ gem 'haml-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'quiet_assets'
 gem 'letter_opener'
-
-group :development do
-  gem 'powder'
-end
+gem 'font-awesome-sass-rails'
+gem 'formtastic',          github: 'justinfrench/formtastic' #for adviceadmin
+gem 'formtastic-bootstrap'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -43,9 +44,4 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'simplecov'
-end
-
-group :production do
-  gem 'pg'
-  gem 'thin'
 end
