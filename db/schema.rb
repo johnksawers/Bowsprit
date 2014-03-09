@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130722021940) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 20130722021940) do
     t.text     "response"
     t.integer  "question_id"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "response_matches"
     t.integer  "interview_id"
   end
@@ -59,15 +62,15 @@ ActiveRecord::Schema.define(version: 20130722021940) do
   create_table "interviews", force: true do |t|
     t.string   "name"
     t.integer  "script_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", force: true do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "script_id",  null: false
     t.integer  "order",      null: false
   end
@@ -76,8 +79,8 @@ ActiveRecord::Schema.define(version: 20130722021940) do
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
@@ -86,15 +89,15 @@ ActiveRecord::Schema.define(version: 20130722021940) do
   create_table "scripts", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false
     t.text     "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
@@ -111,8 +114,8 @@ ActiveRecord::Schema.define(version: 20130722021940) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
   end
 
