@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 gem 'rails', '~>4.0'
 
 gem 'pg'
@@ -18,9 +18,11 @@ gem 'turbolinks'
 gem 'responders',          github: 'plataformatec/responders'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'ransack'
+gem 'active_model_serializers'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 #assets
+gem 'ember-rails'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
@@ -28,7 +30,7 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'font-awesome-sass-rails'
-gem 'formtastic',          github: 'justinfrench/formtastic' #for adviceadmin
+gem 'formtastic',          github: 'justinfrench/formtastic' #for activeadmin
 gem 'formtastic-bootstrap'
 
 group :development do

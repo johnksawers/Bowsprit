@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
     rescue_from CanCan::AccessDenied do |exception|
         redirect_to root_path, :alert => exception.message
     end
+
+    #def default_serializer_options
+    #  {root: false}
+    #end
+
     protected
 
     def after_update_path_for(resource)

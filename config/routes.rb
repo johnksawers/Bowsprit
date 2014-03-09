@@ -23,4 +23,11 @@ Bowsprit::Application.routes.draw do
     get '/about', :to => 'home#about', :as => 'about'
     get 'scripts/:id/conduct_interview', :to => 'interviews#new', :as => 'conduct_interview'
 
+
+  namespace :api do
+    namespace :v1 do
+      resources :scripts
+    end
+  end
+
 end
