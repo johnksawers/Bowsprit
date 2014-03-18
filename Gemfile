@@ -28,6 +28,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'hamlbars', '~> 2.1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'font-awesome-sass-rails'
 gem 'formtastic',          github: 'justinfrench/formtastic' #for activeadmin

@@ -1,0 +1,12 @@
+.row
+	.col-md-12
+		%h1.page-title
+			Interview Scripts
+.row
+	.col-md-9
+        {{outlet}}
+
+	.col-md-3
+		= link_to 'Create New Script', new_script_path, :class => 'btn btn-lg btn-warning btn-support-ask'
+		= hb 'link-to scripts'
+			Scripts

@@ -1,0 +1,10 @@
+%h1 Scripts
+
+%ul
+  = hb 'each controller' do
+    %li= hb 'link-to "script" this'
+      = hb 'name'
+  = hb 'else'
+    %li There are no scripts.
+
+= hb 'outlet'
